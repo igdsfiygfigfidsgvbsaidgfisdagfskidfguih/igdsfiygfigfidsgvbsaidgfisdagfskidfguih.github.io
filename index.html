@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="NextGen Themes - Download premium Shopify themes, HTML templates, and exclusive coding scripts. Best digital marketplace for developers.">
+    <meta name="keywords" content="Shopify Themes, HTML Codes, Website Templates, Coding Scripts, Digital Store">
+    <meta name="author" content="NextGen Adi">
+    
     <title>NextGen | Hyper Premium Store</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6262033771925685"
+     crossorigin="anonymous"></script>
     
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
@@ -59,38 +64,22 @@
 
         .nav-right { display: flex; align-items: center; gap: 20px; }
 
-        /* BACK BUTTON STYLE */
         .back-btn-header {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 8px 20px;
-            border: 1px solid var(--gold-main);
-            border-radius: 50px;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: transparent;
+            text-decoration: none; color: var(--text-main); font-weight: 700; font-size: 0.85rem;
+            padding: 8px 20px; border: 1px solid var(--gold-main); border-radius: 50px;
+            transition: 0.3s; display: flex; align-items: center; gap: 8px; background: transparent;
         }
-        .back-btn-header:hover {
-            background: var(--gold-main);
-            color: #fff;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-            transform: translateX(-3px);
-        }
+        .back-btn-header:hover { background: var(--gold-main); color: #fff; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); transform: translateX(-3px); }
 
         /* --- HERO --- */
         .hero {
-            min-height: 100vh; display: flex; flex-direction: column;
+            min-height: 90vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center; padding: 0 20px;
         }
         .hero h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 700; }
         .hero h1 span { background: linear-gradient(to right, #d4af37, #f3d467); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { font-size: 1.2rem; color: var(--text-sub); max-width: 600px; margin-bottom: 50px; }
 
-        /* BUTTONS */
         .hyper-btn {
             position: relative; padding: 18px 50px; font-size: 1rem; font-weight: 700;
             text-transform: uppercase; color: var(--text-main); background: transparent;
@@ -104,7 +93,6 @@
         .hyper-btn:hover { color: #fff; border-color: transparent; box-shadow: var(--gold-glow); transform: translateY(-3px); }
         .hyper-btn:hover::before { transform: scaleX(1); }
 
-        /* TRUST STRIP */
         .trust-strip {
             display: flex; gap: 30px; margin-bottom: 40px; background: #fff;
             padding: 15px 30px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05);
@@ -113,12 +101,21 @@
         .trust-item { font-size: 0.9rem; font-weight: 600; color: #333; display: flex; align-items: center; gap: 8px; }
         .trust-item i { color: var(--gold-main); font-size: 1.1rem; }
 
+        /* --- ADSENSE CONTAINER STYLE --- */
+        .ad-container {
+            width: 100%; max-width: 900px; margin: 40px auto; padding: 10px;
+            background: rgba(255,255,255,0.5); border: 1px dashed #ccc;
+            text-align: center; min-height: 100px; display: flex; align-items: center; justify-content: center;
+            border-radius: 10px;
+        }
+        .ad-label { font-size: 0.8rem; color: #999; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
+
         /* --- SHOP SECTION --- */
-        .section-title { text-align: center; margin-bottom: 70px; padding-top: 50px; }
+        .section-title { text-align: center; margin-bottom: 60px; padding-top: 50px; }
         .section-title h2 { font-size: 3rem; font-family: 'Cinzel', serif; }
         .divider { width: 50px; height: 3px; background: var(--gold-main); margin: 10px auto; }
         
-        .container { max-width: 1100px; margin: 0 auto; padding-bottom: 80px; }
+        .container { max-width: 1100px; margin: 0 auto; padding-bottom: 60px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; padding: 0 20px; }
 
         .glass-card {
@@ -132,9 +129,16 @@
         .card-btn { color: var(--text-main); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--gold-main); padding-bottom: 5px; transition: 0.3s; }
         .card-btn:hover { color: var(--gold-main); letter-spacing: 1px; }
 
+        /* --- CONTENT SECTION --- */
+        .info-content {
+            max-width: 1000px; margin: 0 auto 60px; padding: 40px; background: #fff;
+            border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center;
+        }
+        .info-content h3 { font-size: 2rem; margin-bottom: 20px; font-family: 'Cinzel', serif; }
+        .info-content p { color: #666; line-height: 1.8; margin-bottom: 15px; }
+
         /* --- REVIEW SECTION --- */
-        #reviews { padding: 80px 20px; background: #fff; position: relative; }
-        
+        #reviews { padding: 60px 20px; background: #fff; position: relative; }
         .review-stats { text-align: center; margin-bottom: 50px; }
         .rating-number { font-size: 4rem; font-weight: 800; color: var(--gold-main); line-height: 1; }
         .rating-stars i { color: var(--gold-main); font-size: 1.5rem; margin: 0 2px; }
@@ -173,7 +177,7 @@
             .hero h1 { font-size: 3rem; }
             .grid { grid-template-columns: 1fr; }
             .nav-right { gap: 10px; }
-            .back-btn-header span { display: none; } /* Hide text, show icon on mobile */
+            .back-btn-header span { display: none; }
         }
     </style>
 </head>
@@ -184,13 +188,11 @@
 
     <nav class="navbar" data-aos="fade-down">
         <div class="logo">NextGen<span>Adi</span></div>
-        
         <div class="nav-right">
             <a href="https://nextgenadi4u.online" class="back-btn-header">
                 <i class="fas fa-arrow-left"></i> <span>Back to Main Site</span>
             </a>
-            
-            <a href="mailto:Support@nextgenadi4u.online" style="color:#000; text-decoration:none; font-weight:600;">
+            <a href="mailto:support@nextgenadi.com" style="color:#000; text-decoration:none; font-weight:600;">
                 <i class="far fa-envelope"></i> Support
             </a>
         </div>
@@ -211,6 +213,11 @@
             <a href="#shop" class="hyper-btn">Explore Now</a>
         </div>
     </header>
+
+    <div class="ad-container">
+        <span class="ad-label">Advertisement</span>
+        <div style="color:#ccc; font-size:0.8rem;">[ Auto Ads Will Appear Here ]</div>
+    </div>
 
     <section id="shop">
         <div class="section-title" data-aos="fade-up">
@@ -234,6 +241,17 @@
             </div>
         </div>
     </section>
+
+    <section class="info-content" data-aos="fade-up">
+        <h3>Why Choose NextGen?</h3>
+        <p>At NextGen Themes, we provide the highest quality digital assets for developers, dropshippers, and entrepreneurs. Our products are coded with precision to ensure maximum speed, SEO optimization, and mobile responsiveness. Whether you are looking for a high-converting Shopify theme or a custom HTML script, we have the tools to help you succeed.</p>
+        <p>Our "Code Xip" library offers exclusive access to PHP scripts, Python modules, and full-stack website layouts. Meanwhile, our "Shopify" collection features architectural-grade designs that are proven to boost sales and enhance user experience.</p>
+    </section>
+
+    <div class="ad-container">
+        <span class="ad-label">Advertisement</span>
+        <div style="color:#ccc; font-size:0.8rem;">[ Auto Ads Will Appear Here ]</div>
+    </div>
 
     <section id="reviews">
         <div class="section-title" data-aos="fade-up">
@@ -277,21 +295,22 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>NextGen Themes</h4>
-                <p style="color:#777;">The #1 Marketplace for premium digital assets.</p>
+                <p style="color:#777;">The #1 Marketplace for premium digital assets. Delivering excellence since 2026.</p>
             </div>
             <div class="footer-col">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="terms.html">Terms</a></li>
-                    <li><a href="refund.html">Refunds</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="refund.html">Refund Policy</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Links</h4>
                 <ul>
                     <li><a href="code.html">Code Xip</a></li>
-                    <li><a href="shopify.html">Themes</a></li>
+                    <li><a href="shopify.html">Shopify Themes</a></li>
+                    <li><a href="https://nextgenadi4u.online">Main Site</a></li>
                 </ul>
             </div>
         </div>

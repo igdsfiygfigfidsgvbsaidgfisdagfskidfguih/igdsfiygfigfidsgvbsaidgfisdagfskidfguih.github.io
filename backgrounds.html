@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen | Top 50 Ultimate Backgrounds</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --bg-body: #f4f4f9;
+            --gold-main: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3d467 100%);
+            --text-dark: #1a1a1a;
+            --card-bg: #ffffff;
+            --shadow-card: 0 15px 35px rgba(0,0,0,0.08);
+            --border-light: rgba(0,0,0,0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body { background: var(--bg-body); color: var(--text-dark); overflow-x: hidden; }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(255,255,255,0.9);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            backdrop-filter: blur(20px);
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: #000; text-decoration: none; }
+        .logo span { color: var(--gold-main); }
+        .back-btn { text-decoration: none; color: #333; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .back-btn:hover { color: var(--gold-main); transform: translateX(-5px); }
+
+        /* --- HEADER --- */
+        .header { text-align: center; padding: 120px 20px 50px; }
+        .header h1 { font-size: 3rem; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .header p { color: #666; max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+        .badge { background: #111; color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; margin-top: 15px; display: inline-block;}
+
+        /* --- GRID --- */
+        .grid-container {
+            max-width: 1300px; margin: 0 auto; padding: 0 20px 100px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;
+        }
+
+        /* --- CARD DESIGN (MONITOR LOOK) --- */
+        .bg-card {
+            background: var(--card-bg); border-radius: 16px; overflow: hidden;
+            box-shadow: var(--shadow-card); transition: all 0.4s ease; 
+            border: 1px solid var(--border-light); display: flex; flex-direction: column;
+        }
+        .bg-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); border-color: var(--gold-main); }
+
+        /* Monitor Bezel */
+        .preview-box {
+            width: 100%; height: 200px; background: #000; position: relative;
+            border-bottom: 4px solid #222;
+        }
+        
+        .overlay {
+            position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.6);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; z-index: 10;
+            transition: 0.3s;
+        }
+        .bg-card:hover .overlay { background: rgba(0,0,0,0.3); }
+
+        .play-btn {
+            width: 60px; height: 60px; background: var(--gold-gradient); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.4rem;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); transition: 0.3s;
+        }
+        .bg-card:hover .play-btn { transform: scale(1.1); }
+        .overlay span { color: #fff; margin-top: 10px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+        .close-btn {
+            position: absolute; top: 15px; right: 15px; width: 35px; height: 35px;
+            background: rgba(255, 255, 255, 0.2); color: white; border-radius: 50%; display: none;
+            align-items: center; justify-content: center; cursor: pointer; z-index: 20;
+            backdrop-filter: blur(5px); transition: 0.3s;
+        }
+        .close-btn:hover { background: #ff4757; }
+        
+        .iframe-container { width: 100%; height: 100%; border: none; display: block; }
+
+        /* --- CONTENT --- */
+        .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .tag { font-size: 0.7rem; color: #fff; background: #222; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; font-weight: 600; }
+        .number { font-size: 1.5rem; font-weight: 800; color: #eee; position: absolute; top: 10px; left: 10px; z-index: 5; opacity: 0.5; font-family: 'Playfair Display'; }
+        
+        .title { font-size: 1.3rem; font-weight: 700; margin-bottom: 5px; color: #111; }
+        .desc { font-size: 0.9rem; color: #666; margin-bottom: 20px; line-height: 1.5; }
+        
+        .copy-btn {
+            margin-top: auto; padding: 14px; width: 100%; background: #111; color: #fff; border: none;
+            border-radius: 8px; cursor: pointer; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px;
+            transition: 0.2s; font-size: 0.95rem;
+        }
+        .copy-btn:hover { background: var(--gold-main); color: #000; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="code.html" class="logo">NextGen<span>Adi</span></a>
+        <a href="code.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back Library</a>
+    </nav>
+
+    <div class="header">
+        <h1>Top 50 <span style="color:var(--gold-main)">Ultra</span> Backgrounds</h1>
+        <p>Curated list of high-performance, premium web backgrounds.</p>
+        <span class="badge">HANDPICKED COLLECTION</span>
+    </div>
+
+    <div class="grid-container" id="grid"></div>
+
+    <script>
+        // --- THE TOP 50 DATASET (UNIQUE CODES) ---
+        const bgs = [
+            // --- 1 to 10: TECH & CYBER ---
+            { t: "JS", n: "Matrix Rain", d: "Classic green digital rain effect using Canvas.", c: `<style>body{margin:0;overflow:hidden;background:#000}</style><canvas id="c"></canvas><script>var c=document.getElementById("c"),ctx=c.getContext("2d");c.width=window.innerWidth;c.height=window.innerHeight;var m="01".split(""),font_size=14,columns=c.width/font_size,drops=[];for(var x=0;x<columns;x++)drops[x]=1;function draw(){ctx.fillStyle="rgba(0,0,0,0.05)";ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle="#0F0";ctx.font=font_size+"px arial";for(var i=0;i<drops.length;i++){var text=m[Math.floor(Math.random()*m.length)];ctx.fillText(text,i*font_size,drops[i]*font_size);if(drops[i]*font_size>c.height&&Math.random()>0.975)drops[i]=0;drops[i]++}}setInterval(draw,35)<\/script>` },
+            { t: "CSS", n: "Cyber Grid", d: "Moving perspective grid for tech vibes.", c: `<style>body{background:#000;height:100vh;overflow:hidden;background-image:linear-gradient(rgba(0,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,255,.3) 1px, transparent 1px);background-size:40px 40px;perspective:500px;animation:m 20s linear infinite}@keyframes m{0%{transform:rotateX(45deg) translateY(0)}100%{transform:rotateX(45deg) translateY(1000px)}}</style>` },
+            { t: "CSS", n: "Neon Pulse", d: "Dark background with glowing neon circle.", c: `<style>body{background:#111;display:flex;justify-content:center;align-items:center;height:100vh}.c{width:200px;height:200px;border-radius:50%;background:#00f2ff;filter:blur(60px);animation:p 2s infinite alternate}@keyframes p{from{opacity:0.5;transform:scale(0.8)}to{opacity:1;transform:scale(1.2)}}</style><div class="c"></div>` },
+            { t: "JS", n: "Network Mesh", d: "Interconnected particles (Gold).", c: `<div id="p" style="position:absolute;width:100%;height:100%;background:#000"></div><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"><\/script><script>particlesJS("p",{"particles":{"number":{"value":50},"color":{"value":"#d4af37"},"line_linked":{"enable":true,"color":"#d4af37"},"move":{"enable":true}}})<\/script>` },
+            { t: "CSS", n: "Scanlines", d: "CRT Monitor effect scanlines.", c: `<style>body{background:#222;height:100vh}.s{position:fixed;left:0;top:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0) 50%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.2));background-size:100% 4px}</style><div class="s"></div>` },
+            { t: "CSS", n: "Circuit Board", d: "Complex electronic circuit pattern.", c: `<style>body{background-color:#0a0a0a;background-image:radial-gradient(#00ff00 15%,transparent 16%),radial-gradient(#00ff00 15%,transparent 16%);background-size:60px 60px;background-position:0 0,30px 30px}</style>` },
+            { t: "JS", n: "Hacker Glitch", d: "Random flashing glitch background.", c: `<style>body{background:#000;animation:g 0.2s infinite} @keyframes g{0%{background:#000}90%{background:#000}95%{background:#111}100%{background:#000}}</style>` },
+            { t: "CSS", n: "Blue Blueprint", d: "Architectural blueprint style grid.", c: `<style>body{background-color:#269;background-image:linear-gradient(white 2px,transparent 2px),linear-gradient(90deg,white 2px,transparent 2px),linear-gradient(rgba(255,255,255,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.3) 1px,transparent 1px);background-size:100px 100px,100px 100px,20px 20px,20px 20px;background-position:-2px -2px,-2px -2px,-1px -1px,-1px -1px}</style>` },
+            { t: "CSS", n: "Digital Noise", d: "Static TV noise effect.", c: `<style>body{background:repeating-radial-gradient(#000 0 0.0001%,#111 0 0.0002%) 50% 0/2500px 2500px,repeating-conic-gradient(#000 0 0.0001%,#111 0 0.0002%) 60% 60%/2500px 2500px;background-blend-mode:difference;animation:n .2s infinite alternate}@keyframes n{100%{background-position:50% 0,60% 50%}}</style>` },
+            { t: "CSS", n: "Glowing Hex", d: "Futuristic hexagon pattern.", c: `<style>body{background:#111;background-image:radial-gradient(circle, transparent 20%, #111 20%, #111 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #111 20%, #111 80%, transparent 80%, transparent) 25px 25px, linear-gradient(#222 2px, transparent 2px) 0 -1px, linear-gradient(90deg, #222 2px, transparent 2px) -1px 0;background-size:50px 50px,50px 50px,25px 25px,25px 25px}</style>` },
+
+            // --- 11 to 20: LUXURY & GOLD ---
+            { t: "CSS", n: "Golden Gradient", d: "Smooth luxury gold flow.", c: `<style>body{background:linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);background-size:400% 400%;animation:g 10s ease infinite;height:100vh}@keyframes g{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}</style>` },
+            { t: "JS", n: "Gold Dust", d: "Particles of gold floating in dark.", c: `<div id="p" style="background:#050505;width:100%;height:100vh"></div><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"><\/script><script>particlesJS("p",{"particles":{"number":{"value":60},"color":{"value":"#d4af37"},"shape":{"type":"circle"},"opacity":{"value":0.6},"size":{"value":3},"move":{"enable":true,"speed":1}}})<\/script>` },
+            { t: "CSS", n: "Royal Pattern", d: "Dark luxury damask style.", c: `<style>body{background-color:#111;background-image:radial-gradient(#d4af37 15%, transparent 16%), radial-gradient(#d4af37 15%, transparent 16%);background-size:60px 60px;background-position:0 0, 30px 30px;opacity:0.8}</style>` },
+            { t: "CSS", n: "Silk Waves", d: "Abstract golden waves.", c: `<style>body{background:#000;background:repeating-linear-gradient(45deg, #111 0px, #111 20px, #222 20px, #d4af37 21px, #111 22px);height:100vh}</style>` },
+            { t: "CSS", n: "Marble Texture", d: "White and gold marble.", c: `<style>body{background:white;background-image:linear-gradient(45deg,#f0f0f0 25%,transparent 25%,transparent 75%,#f0f0f0 75%,#f0f0f0),linear-gradient(45deg,#f0f0f0 25%,transparent 25%,transparent 75%,#f0f0f0 75%,#f0f0f0);background-size:20px 20px;background-position:0 0,10px 10px}</style>` },
+            { t: "CSS", n: "Diamond Mesh", d: "Rotated grid squares.", c: `<style>body{background:#1a1a1a;background-image:linear-gradient(135deg, #222 25%, transparent 25%), linear-gradient(225deg, #222 25%, transparent 25%), linear-gradient(45deg, #222 25%, transparent 25%), linear-gradient(315deg, #222 25%, transparent 25%);background-position:10px 0, 10px 0, 0 0, 0 0;background-size:20px 20px;background-repeat:repeat}</style>` },
+            { t: "CSS", n: "Satin Sheets", d: "Soft blurred gold waves.", c: `<style>body{background:radial-gradient(circle at 50% 50%, #d4af37, #111);height:100vh}</style>` },
+            { t: "CSS", n: "Gold Vignette", d: "Black center with gold edges.", c: `<style>body{background:#000;box-shadow:inset 0 0 150px #d4af37;height:100vh}</style>` },
+            { t: "CSS", n: "Sunburst", d: "Rotating rays of gold.", c: `<style>body{background:#111;background:repeating-conic-gradient(#111 0% 5%, #d4af37 5% 10%);height:100vh;animation:s 20s linear infinite}@keyframes s{to{transform:rotate(360deg)}}</style>` },
+            { t: "CSS", n: "Luxury Stripes", d: "Vertical thin gold lines.", c: `<style>body{background:#111;background:repeating-linear-gradient(90deg, #111 0px, #111 50px, #d4af37 51px)}</style>` },
+
+            // --- 21 to 30: SPACE & DARK ---
+            { t: "JS", n: "Starfield", d: "Moving stars in deep space.", c: `<style>body{background:#000;overflow:hidden}.s{position:absolute;background:#fff;border-radius:50%}</style><script>for(let i=0;i<200;i++){let s=document.createElement("div");s.className="s";s.style.width=Math.random()*2+"px";s.style.height=s.style.width;s.style.left=Math.random()*100+"vw";s.style.top=Math.random()*100+"vh";document.body.appendChild(s)}<\/script>` },
+            { t: "CSS", n: "Aurora", d: "Northern lights gradient.", c: `<style>body{background:linear-gradient(135deg, #000 40%, #00ff88 80%, #000 100%);background-size:400% 400%;animation:a 10s infinite alternate;height:100vh}@keyframes a{0%{background-position:0% 50%}100%{background-position:100% 50%}}</style>` },
+            { t: "CSS", n: "Deep Space", d: "Dark blue and purple nebula.", c: `<style>body{background:radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);height:100vh}</style>` },
+            { t: "CSS", n: "Twinkling Stars", d: "CSS animation stars.", c: `<style>body{background:#000}.s{position:absolute;width:2px;height:2px;background:#fff;animation:t 1s infinite alternate}@keyframes t{from{opacity:0.2}to{opacity:1}}</style><div class="s" style="top:10%;left:20%"></div><div class="s" style="top:50%;left:80%;animation-delay:0.5s"></div><div class="s" style="top:80%;left:40%"></div>` },
+            { t: "CSS", n: "Eclipse", d: "Central dark circle with glow.", c: `<style>body{background:#000;display:flex;justify-content:center;align-items:center;height:100vh}.m{width:200px;height:200px;background:#000;border-radius:50%;box-shadow:0 0 50px #fff}</style><div class="m"></div>` },
+            { t: "CSS", n: "Galaxy Spiral", d: "Conic gradient spin.", c: `<style>body{background:#000;background:conic-gradient(from 0deg, #000, #220033, #000);height:100vh}</style>` },
+            { t: "JS", n: "Meteor Shower", d: "Falling shooting stars.", c: `<style>body{background:#000;overflow:hidden}.m{position:absolute;width:2px;height:50px;background:linear-gradient(#fff,transparent);animation:f 1s linear infinite}@keyframes f{to{transform:translateY(100vh)}}</style><script>setInterval(()=>{let m=document.createElement("div");m.className="m";m.style.left=Math.random()*100+"vw";document.body.appendChild(m);setTimeout(()=>m.remove(),1000)},100)<\/script>` },
+            { t: "CSS", n: "Foggy Night", d: "Grey mist animation.", c: `<style>body{background:#222;height:100vh;background-image:linear-gradient(transparent 95%, #000 100%);animation:f 10s infinite}@keyframes f{0%{background-color:#222}50%{background-color:#333}100%{background-color:#222}}</style>` },
+            { t: "CSS", n: "Red Planet", d: "Mars like atmosphere.", c: `<style>body{background:linear-gradient(to top, #4a0000, #000);height:100vh}</style>` },
+            { t: "CSS", n: "Black Hole", d: "Intense center gravity.", c: `<style>body{background:#000;background:radial-gradient(circle, #000 40%, #222 100%);height:100vh}</style>` },
+
+            // --- 31 to 40: ABSTRACT & ART ---
+            { t: "CSS", n: "Liquid Blob", d: "Morphing animated shape.", c: `<style>body{background:#fff;display:flex;justify-content:center;align-items:center;height:100vh}.b{width:200px;height:200px;background:#d4af37;border-radius:60% 40% 30% 70%/60% 30% 70% 40%;animation:m 5s infinite alternate}@keyframes m{to{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}}</style><div class="b"></div>` },
+            { t: "CSS", n: "Confetti Static", d: "Colorful static dots.", c: `<style>body{background:#fff;background-image:radial-gradient(#f00 2px, transparent 2px), radial-gradient(#0f0 2px, transparent 2px), radial-gradient(#00f 2px, transparent 2px);background-size:20px 20px;background-position:0 0, 10px 10px, 5px 15px}</style>` },
+            { t: "CSS", n: "Glass Blur", d: "Frosted glass overlay.", c: `<style>body{background:url('https://source.unsplash.com/random/1920x1080') no-repeat center/cover;height:100vh}.g{width:100%;height:100%;backdrop-filter:blur(10px)}</style><div class="g"></div>` },
+            { t: "CSS", n: "Kaleidoscope", d: "Multi-color gradient mix.", c: `<style>body{background:linear-gradient(45deg, #f06, yellow, #0ff);background-blend-mode:screen;height:100vh}</style>` },
+            { t: "CSS", n: "Moving Stripes", d: "Diagonal animated lines.", c: `<style>body{background:repeating-linear-gradient(45deg, #111, #111 10px, #222 10px, #222 20px);animation:s 20s linear infinite;height:100vh}@keyframes s{from{background-position:0 0}to{background-position:100px 0}}</style>` },
+            { t: "JS", n: "Fireflies", d: "Yellow flying dots.", c: `<style>body{background:#000;overflow:hidden}.f{position:absolute;width:4px;height:4px;background:yellow;border-radius:50%;box-shadow:0 0 5px yellow;animation:f 5s infinite linear}@keyframes f{to{transform:translate(100px,-100px)}}</style><script>for(let i=0;i<30;i++){let d=document.createElement("div");d.className="f";d.style.left=Math.random()*100+"vw";d.style.top=Math.random()*100+"vh";document.body.appendChild(d)}<\/script>` },
+            { t: "CSS", n: "Mosaic", d: "Pixelated colorful grid.", c: `<style>body{background:linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc);background-size:20px 20px;background-position:0 0, 10px 10px}</style>` },
+            { t: "CSS", n: "Rotating Triangles", d: "Spinning center shape.", c: `<style>body{background:#eee;display:flex;justify-content:center;align-items:center;height:100vh}.t{width:0;height:0;border-left:50px solid transparent;border-right:50px solid transparent;border-bottom:100px solid #d4af37;animation:r 2s infinite linear}@keyframes r{to{transform:rotate(360deg)}}</style><div class="t"></div>` },
+            { t: "CSS", n: "Focus Blur", d: "Vignette focus effect.", c: `<style>body{background:#fff;background:radial-gradient(circle, transparent 50%, #000 150%);height:100vh}</style>` },
+            { t: "CSS", n: "Pastel Dreams", d: "Soft pink and blue.", c: `<style>body{background:linear-gradient(to right, #ffdde1, #ee9ca7);height:100vh}</style>` },
+
+            // --- 41 to 50: CLEAN & MINIMAL ---
+            { t: "CSS", n: "Graph Paper", d: "Simple grid lines.", c: `<style>body{background-size:40px 40px;background-image:linear-gradient(to right, #eee 1px, transparent 1px), linear-gradient(to bottom, #eee 1px, transparent 1px);background-color:#fff}</style>` },
+            { t: "CSS", n: "Dotted Paper", d: "Minimal dots pattern.", c: `<style>body{background-color:#f7f7f7;background-image:radial-gradient(#ccc 1px, transparent 1px);background-size:20px 20px}</style>` },
+            { t: "CSS", n: "Carbon Grey", d: "Dark grey texture.", c: `<style>body{background:radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px;background-color:#282828;background-size:16px 16px}</style>` },
+            { t: "CSS", n: "Soft Clouds", d: "White cloudy gradient.", c: `<style>body{background:linear-gradient(to top, #dfe9f3 0%, white 100%);height:100vh}</style>` },
+            { t: "CSS", n: "Lined Notebook", d: "Horizontal blue lines.", c: `<style>body{background-color:#fff;background-image:linear-gradient(#e1e1e1 1px, transparent 1px);background-size:100% 1.5em}</style>` },
+            { t: "CSS", n: "Subtle Noise", d: "Grainy texture overlay.", c: `<style>body{background:#eee;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E")}</style>` },
+            { t: "CSS", n: "Fade White", d: "White to transparent fade.", c: `<style>body{background:linear-gradient(to bottom, #fff, #f0f0f0);height:100vh}</style>` },
+            { t: "CSS", n: "Isomorphic Grid", d: "3D cube outline grid.", c: `<style>body{background-color:#fff;background-image:linear-gradient(30deg, #eee 12%, transparent 12.5%, transparent 87%, #eee 87.5%, #eee), linear-gradient(150deg, #eee 12%, transparent 12.5%, transparent 87%, #eee 87.5%, #eee), linear-gradient(30deg, #eee 12%, transparent 12.5%, transparent 87%, #eee 87.5%, #eee), linear-gradient(150deg, #eee 12%, transparent 12.5%, transparent 87%, #eee 87.5%, #eee), linear-gradient(60deg, #f0f0f0 25%, transparent 25.5%, transparent 75%, #f0f0f0 75%, #f0f0f0), linear-gradient(60deg, #f0f0f0 25%, transparent 25.5%, transparent 75%, #f0f0f0 75%, #f0f0f0);background-size:20px 35px}</style>` },
+            { t: "CSS", n: "Diagonal Lines", d: "Simple diagonal stripe.", c: `<style>body{background:repeating-linear-gradient(45deg,#fff,#fff 10px,#f0f0f0 10px,#f0f0f0 20px)}</style>` },
+            { t: "CSS", n: "Pure Black", d: "Deepest black.", c: `<style>body{background:#000000;height:100vh}</style>` }
+        ];
+
+        // --- RENDER LOGIC ---
+        const grid = document.getElementById('grid');
+
+        bgs.forEach((bg, index) => {
+            const card = document.createElement('div');
+            card.className = 'bg-card';
+            card.innerHTML = `
+                <div class="preview-box" id="prev-${index}">
+                    <div class="number">#${index + 1}</div>
+                    <div class="overlay" onclick="loadPreview(${index})">
+                        <div class="play-btn"><i class="fas fa-play"></i></div>
+                        <span>Preview</span>
+                    </div>
+                    <div class="close-btn" onclick="closePreview(${index})"><i class="fas fa-times"></i></div>
+                </div>
+                <div class="card-body">
+                    <div class="meta">
+                        <span class="tag">${bg.t}</span>
+                    </div>
+                    <div class="title">${bg.n}</div>
+                    <div class="desc">${bg.d}</div>
+                    <button class="copy-btn" onclick="copyCode(${index}, this)">
+                        <i class="far fa-copy"></i> Copy Code
+                    </button>
+                    <textarea style="display:none">${bg.c}</textarea>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        // --- PREVIEW SYSTEM ---
+        function loadPreview(index) {
+            const box = document.getElementById(`prev-${index}`);
+            const code = box.parentElement.querySelector('textarea').value;
+            
+            box.querySelector('.overlay').style.display = 'none';
+            box.querySelector('.close-btn').style.display = 'flex';
+            
+            const iframe = document.createElement('iframe');
+            iframe.className = 'iframe-container';
+            box.appendChild(iframe);
+            
+            const doc = iframe.contentWindow.document;
+            doc.open();
+            doc.write(code);
+            doc.close();
+        }
+
+        function closePreview(index) {
+            const box = document.getElementById(`prev-${index}`);
+            box.querySelector('iframe').remove();
+            box.querySelector('.overlay').style.display = 'flex';
+            box.querySelector('.close-btn').style.display = 'none';
+        }
+
+        // --- COPY SYSTEM ---
+        function copyCode(index, btn) {
+            const code = bgs[index].c;
+            navigator.clipboard.writeText(code).then(() => {
+                let original = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.style.background = '#d4af37';
+                setTimeout(() => {
+                    btn.innerHTML = original;
+                    btn.style.background = '#111';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

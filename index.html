@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen | Hyper Premium Store</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        /* --- HYPER PALETTE --- */
+        :root {
+            --bg-body: #f4f5f7;
+            --text-main: #111;
+            --text-sub: #555;
+            --gold-main: #d4af37;
+            --gold-dark: #b89325;
+            --gold-glow: 0 0 25px rgba(212, 175, 55, 0.6);
+            --glass: rgba(255, 255, 255, 0.65);
+            --border-light: rgba(0,0,0,0.05);
+            --shadow-float: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- HYPER GRID BACKGROUND --- */
+        .bg-grid {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--border-light) 1px, transparent 1px),
+            linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+            background-size: 40px 40px; z-index: -2;
+        }
+
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 6%; position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.6rem; font-weight: 700; color: #000; letter-spacing: 1px; }
+        .logo span { color: var(--gold-main); }
+
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+
+        /* BACK BUTTON STYLE */
+        .back-btn-header {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 8px 20px;
+            border: 1px solid var(--gold-main);
+            border-radius: 50px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+        }
+        .back-btn-header:hover {
+            background: var(--gold-main);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+            transform: translateX(-3px);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 100vh; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center; padding: 0 20px;
+        }
+        .hero h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 700; }
+        .hero h1 span { background: linear-gradient(to right, #d4af37, #f3d467); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: var(--text-sub); max-width: 600px; margin-bottom: 50px; }
+
+        /* BUTTONS */
+        .hyper-btn {
+            position: relative; padding: 18px 50px; font-size: 1rem; font-weight: 700;
+            text-transform: uppercase; color: var(--text-main); background: transparent;
+            border: 2px solid var(--gold-main); border-radius: 50px; cursor: pointer;
+            overflow: hidden; letter-spacing: 2px; transition: 0.4s; z-index: 1; text-decoration: none; display: inline-block;
+        }
+        .hyper-btn::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--gold-main); z-index: -1; transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .hyper-btn:hover { color: #fff; border-color: transparent; box-shadow: var(--gold-glow); transform: translateY(-3px); }
+        .hyper-btn:hover::before { transform: scaleX(1); }
+
+        /* TRUST STRIP */
+        .trust-strip {
+            display: flex; gap: 30px; margin-bottom: 40px; background: #fff;
+            padding: 15px 30px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .trust-item { font-size: 0.9rem; font-weight: 600; color: #333; display: flex; align-items: center; gap: 8px; }
+        .trust-item i { color: var(--gold-main); font-size: 1.1rem; }
+
+        /* --- SHOP SECTION --- */
+        .section-title { text-align: center; margin-bottom: 70px; padding-top: 50px; }
+        .section-title h2 { font-size: 3rem; font-family: 'Cinzel', serif; }
+        .divider { width: 50px; height: 3px; background: var(--gold-main); margin: 10px auto; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding-bottom: 80px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; padding: 0 20px; }
+
+        .glass-card {
+            background: var(--glass); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 20px; padding: 50px 30px; text-align: center; transition: 0.4s ease; position: relative;
+        }
+        .glass-card:hover { transform: translateY(-15px) scale(1.02); background: #fff; box-shadow: var(--shadow-float); border-color: var(--gold-main); }
+        .icon-box { font-size: 3.5rem; color: var(--gold-main); margin-bottom: 25px; transition: 0.5s; }
+        .glass-card:hover .icon-box { transform: scale(1.1); text-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        .glass-card h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .card-btn { color: var(--text-main); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--gold-main); padding-bottom: 5px; transition: 0.3s; }
+        .card-btn:hover { color: var(--gold-main); letter-spacing: 1px; }
+
+        /* --- REVIEW SECTION --- */
+        #reviews { padding: 80px 20px; background: #fff; position: relative; }
+        
+        .review-stats { text-align: center; margin-bottom: 50px; }
+        .rating-number { font-size: 4rem; font-weight: 800; color: var(--gold-main); line-height: 1; }
+        .rating-stars i { color: var(--gold-main); font-size: 1.5rem; margin: 0 2px; }
+        .total-reviews { color: #777; font-size: 0.9rem; margin-top: 5px; }
+
+        .reviews-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto 60px; }
+        .review-card { background: #f9f9f9; padding: 25px; border-radius: 15px; border: 1px solid #eee; transition: 0.3s; }
+        .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--gold-main); }
+        .r-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .r-name { font-weight: 700; font-size: 1.1rem; }
+        .r-stars { color: var(--gold-main); font-size: 0.8rem; }
+        .r-text { color: #555; font-size: 0.95rem; line-height: 1.5; font-style: italic; }
+        .r-date { font-size: 0.75rem; color: #999; margin-top: 15px; text-align: right; }
+
+        .review-form-wrapper { max-width: 600px; margin: 0 auto; background: var(--glass); padding: 40px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05); backdrop-filter: blur(10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .form-title { text-align: center; font-size: 1.5rem; margin-bottom: 20px; font-family: 'Cinzel', serif; }
+        .input-group { margin-bottom: 20px; }
+        .input-box { width: 100%; padding: 12px 15px; border: none; border-bottom: 2px solid #ddd; background: transparent; outline: none; font-size: 1rem; transition: 0.3s; font-family: 'Space Grotesk', sans-serif; }
+        .input-box:focus { border-color: var(--gold-main); }
+        .star-select { display: flex; gap: 10px; justify-content: center; margin-bottom: 20px; cursor: pointer; }
+        .star-select i { font-size: 2rem; color: #ddd; transition: 0.2s; }
+        .star-select i.active { color: var(--gold-main); }
+        .submit-btn { width: 100%; padding: 15px; background: #111; color: #fff; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .submit-btn:hover { background: var(--gold-main); color: #000; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
+
+        /* --- FOOTER --- */
+        footer { background: #fff; border-top: 1px solid #eee; padding: 80px 20px 30px; }
+        .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-col h4 { font-size: 1.2rem; margin-bottom: 25px; font-family: 'Cinzel', serif; }
+        .footer-col ul li { list-style: none; margin-bottom: 12px; }
+        .footer-col ul li a { color: #666; text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--gold-main); }
+        .copyright { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #f0f0f0; color: #999; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .grid { grid-template-columns: 1fr; }
+            .nav-right { gap: 10px; }
+            .back-btn-header span { display: none; } /* Hide text, show icon on mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-grid"></div>
+    <div id="particles-js"></div>
+
+    <nav class="navbar" data-aos="fade-down">
+        <div class="logo">NextGen<span>Adi</span></div>
+        
+        <div class="nav-right">
+            <a href="https://nextgenadi4u.online" class="back-btn-header">
+                <i class="fas fa-arrow-left"></i> <span>Back to Main Site</span>
+            </a>
+            
+            <a href="mailto:Support@nextgenadi4u.online" style="color:#000; text-decoration:none; font-weight:600;">
+                <i class="far fa-envelope"></i> Support
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div data-aos="zoom-in" data-aos-duration="1200">
+            <h1>Build Your <br><span>Digital Empire</span></h1>
+            <p>Premium architectural grade Shopify themes and exclusive scripts.<br>Designed for elite entrepreneurs.</p>
+            <div style="display: flex; justify-content: center;">
+                <div class="trust-strip">
+                    <div class="trust-item"><i class="fas fa-shield-alt"></i> Verified</div>
+                    <div class="trust-item"><i class="fas fa-bolt"></i> Instant</div>
+                    <div class="trust-item"><i class="fas fa-lock"></i> Secure</div>
+                </div>
+            </div>
+            <br>
+            <a href="#shop" class="hyper-btn">Explore Now</a>
+        </div>
+    </header>
+
+    <section id="shop">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Our Assets</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="container">
+            <div class="grid">
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="icon-box"><i class="fas fa-code"></i></div>
+                    <h3>Code Xip</h3>
+                    <p>Unlock the power of custom coding. Get access to premium scripts and PHP modules.</p>
+                    <a href="code.html" class="card-btn">Browse Codes</a>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="icon-box"><i class="fab fa-shopify"></i></div>
+                    <h3>Shopify Themes</h3>
+                    <p>Conversion-optimized, high-speed Shopify themes with a luxury golden touch.</p>
+                    <a href="shopify.html" class="card-btn">View Themes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Client Experience</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="review-stats" data-aos="fade-up">
+            <div class="rating-number" id="avg-rating">0.0</div>
+            <div class="rating-stars" id="avg-stars">
+                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+            </div>
+            <div class="total-reviews">Based on <span id="total-count">0</span> Real Reviews</div>
+        </div>
+
+        <div class="reviews-container" id="reviews-list"></div>
+
+        <div class="review-form-wrapper" data-aos="fade-up">
+            <div class="form-title">Write a Review</div>
+            
+            <div class="star-select" id="star-input">
+                <i class="fas fa-star" data-val="1"></i>
+                <i class="fas fa-star" data-val="2"></i>
+                <i class="fas fa-star" data-val="3"></i>
+                <i class="fas fa-star" data-val="4"></i>
+                <i class="fas fa-star" data-val="5"></i>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="r-name" class="input-box" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <input type="text" id="r-text" class="input-box" placeholder="Describe your experience..." required>
+            </div>
+            
+            <button class="submit-btn" onclick="submitReview()">Submit Review</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>NextGen Themes</h4>
+                <p style="color:#777;">The #1 Marketplace for premium digital assets.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="refund.html">Refunds</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="code.html">Code Xip</a></li>
+                    <li><a href="shopify.html">Themes</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 NextGenAdi. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        particlesJS("particles-js", {
+            "particles": { "number": { "value": 50 }, "color": { "value": "#999999" }, "shape": { "type": "triangle" }, "opacity": { "value": 0.3 }, "size": { "value": 4 }, "line_linked": { "enable": true, "distance": 150, "color": "#aaaaaa", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1 } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" } }, "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } } } }, "retina_detect": true
+        });
+
+        /* --- REAL REVIEW SYSTEM --- */
+        let currentRating = 0;
+        document.addEventListener('DOMContentLoaded', loadReviews);
+
+        const starContainer = document.getElementById('star-input');
+        const stars = starContainer.querySelectorAll('i');
+        
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                currentRating = this.getAttribute('data-val');
+                updateStarVisuals(currentRating);
+            });
+        });
+
+        function updateStarVisuals(rating) {
+            stars.forEach(s => {
+                if(s.getAttribute('data-val') <= rating) {
+                    s.classList.add('active');
+                    s.style.color = '#d4af37';
+                } else {
+                    s.classList.remove('active');
+                    s.style.color = '#ddd';
+                }
+            });
+        }
+
+        function submitReview() {
+            const name = document.getElementById('r-name').value;
+            const text = document.getElementById('r-text').value;
+
+            if(name === "" || text === "" || currentRating === 0) {
+                alert("Please fill all fields and select a star rating.");
+                return;
+            }
+
+            const review = {
+                id: Date.now(),
+                name: name,
+                rating: parseInt(currentRating),
+                text: text,
+                date: new Date().toLocaleDateString()
+            };
+
+            let reviews = JSON.parse(localStorage.getItem('nextGenReviews')) || [];
+            reviews.unshift(review);
+            localStorage.setItem('nextGenReviews', JSON.stringify(reviews));
+
+            document.getElementById('r-name').value = '';
+            document.getElementById('r-text').value = '';
+            currentRating = 0;
+            updateStarVisuals(0);
+
+            loadReviews();
+            alert("Thank you! Your review has been permanently saved.");
+        }
+
+        function loadReviews() {
+            let reviews = JSON.parse(localStorage.getItem('nextGenReviews')) || [];
+            
+            if(reviews.length === 0) {
+                reviews = [
+                    {name: "Rahul K.", rating: 5, text: "Best Shopify themes I have ever used. Sales increased by 200%!", date: "12/02/2026"},
+                    {name: "Sarah M.", rating: 5, text: "The code quality is top notch. Very clean and easy to edit.", date: "10/02/2026"}
+                ];
+                localStorage.setItem('nextGenReviews', JSON.stringify(reviews));
+            }
+
+            const list = document.getElementById('reviews-list');
+            list.innerHTML = '';
+            let totalStars = 0;
+
+            reviews.forEach(r => {
+                totalStars += r.rating;
+                let starHTML = '';
+                for(let i=0; i<5; i++) {
+                    if(i < r.rating) starHTML += '<i class="fas fa-star"></i>';
+                    else starHTML += '<i class="far fa-star"></i>';
+                }
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div class="r-header">
+                        <div class="r-name">${r.name}</div>
+                        <div class="r-stars">${starHTML}</div>
+                    </div>
+                    <div class="r-text">"${r.text}"</div>
+                    <div class="r-date">${r.date}</div>
+                `;
+                list.appendChild(card);
+            });
+
+            const avg = (totalStars / reviews.length).toFixed(1);
+            document.getElementById('avg-rating').innerText = avg;
+            document.getElementById('total-count').innerText = reviews.length;
+            
+            const avgContainer = document.getElementById('avg-stars');
+            let avgStarHTML = '';
+            for(let i=1; i<=5; i++) {
+                if(i <= Math.round(avg)) avgStarHTML += '<i class="fas fa-star"></i>';
+                else avgStarHTML += '<i class="far fa-star" style="color:#ddd"></i>';
+            }
+            avgContainer.innerHTML = avgStarHTML;
+        }
+    </script>
+</body>
+</html>

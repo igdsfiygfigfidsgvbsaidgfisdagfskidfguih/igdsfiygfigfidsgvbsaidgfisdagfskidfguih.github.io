@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen | Top 50 HTML Layouts</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --bg-body: #f4f4f9;
+            --gold-main: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3d467 100%);
+            --text-dark: #1a1a1a;
+            --card-bg: #ffffff;
+            --shadow-card: 0 15px 35px rgba(0,0,0,0.08);
+            --border-light: rgba(0,0,0,0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body { background: var(--bg-body); color: var(--text-dark); overflow-x: hidden; }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(255,255,255,0.95);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: #000; text-decoration: none; }
+        .logo span { color: var(--gold-main); }
+        .back-btn { text-decoration: none; color: #333; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .back-btn:hover { color: var(--gold-main); transform: translateX(-5px); }
+
+        /* --- HEADER --- */
+        .header { text-align: center; padding: 120px 20px 30px; }
+        .header h1 { font-size: 3rem; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .header p { color: #666; max-width: 600px; margin: 0 auto; margin-bottom: 30px;}
+
+        /* --- FILTER TABS --- */
+        .tabs { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 50px; }
+        .tab-btn {
+            padding: 8px 20px; border: 1px solid #ddd; background: #fff; border-radius: 50px;
+            cursor: pointer; font-size: 0.9rem; transition: 0.3s; font-weight: 600;
+        }
+        .tab-btn:hover, .tab-btn.active { background: var(--gold-main); color: #fff; border-color: var(--gold-main); }
+
+        /* --- GRID --- */
+        .grid-container {
+            max-width: 1400px; margin: 0 auto; padding: 0 20px 100px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;
+        }
+
+        /* --- CARD DESIGN --- */
+        .layout-card {
+            background: var(--card-bg); border-radius: 12px; overflow: hidden;
+            box-shadow: var(--shadow-card); transition: all 0.4s ease; 
+            border: 1px solid var(--border-light); display: flex; flex-direction: column;
+        }
+        .layout-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); border-color: var(--gold-main); }
+
+        /* MONITOR PREVIEW */
+        .preview-box {
+            width: 100%; height: 220px; background: #e0e0e0; position: relative;
+            border-bottom: 4px solid #333;
+        }
+        
+        .overlay {
+            position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.5);
+            display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; z-index: 10;
+        }
+        .layout-card:hover .overlay { background: rgba(0,0,0,0.3); }
+
+        .play-btn {
+            width: 50px; height: 50px; background: var(--gold-gradient); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); transition: 0.3s;
+        }
+        .layout-card:hover .play-btn { transform: scale(1.1); }
+        .overlay span { color: #fff; margin-top: 10px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
+
+        .iframe-wrapper {
+            width: 200%; height: 200%; transform: scale(0.5); transform-origin: top left;
+            background: #fff; border: none; display: none; pointer-events: none; /* Pointer events none to allow clicking Close */
+        }
+        
+        .close-preview {
+            position: absolute; top: 10px; right: 10px; width: 30px; height: 30px;
+            background: #ff4757; color: white; border-radius: 50%; display: none;
+            align-items: center; justify-content: center; cursor: pointer; z-index: 20;
+        }
+
+        /* --- CONTENT --- */
+        .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .tag { font-size: 0.7rem; color: #fff; background: #222; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; width: fit-content; margin-bottom: 10px;}
+        .title { font-size: 1.2rem; font-weight: 700; margin-bottom: 5px; color: #111; }
+        .desc { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+        
+        .copy-btn {
+            margin-top: auto; padding: 12px; width: 100%; background: #111; color: #fff; border: none;
+            border-radius: 6px; cursor: pointer; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px;
+            transition: 0.2s;
+        }
+        .copy-btn:hover { background: var(--gold-main); color: #000; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="code.html" class="logo">NextGen<span>Adi</span></a>
+        <a href="code.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back Library</a>
+    </nav>
+
+    <div class="header">
+        <h1>Top 50 <span style="color:var(--gold-main)">HTML Layouts</span></h1>
+        <p>Complete single-page website structures. Choose your category.</p>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="renderGrid('all')">All</button>
+            <button class="tab-btn" onclick="renderGrid('Ecom')">E-Commerce</button>
+            <button class="tab-btn" onclick="renderGrid('Portfolio')">Portfolio</button>
+            <button class="tab-btn" onclick="renderGrid('Corporate')">Corporate</button>
+            <button class="tab-btn" onclick="renderGrid('Gaming')">Gaming</button>
+            <button class="tab-btn" onclick="renderGrid('Education')">Education</button>
+            <button class="tab-btn" onclick="renderGrid('Social')">Social Media</button>
+        </div>
+    </div>
+
+    <div class="grid-container" id="grid"></div>
+
+    <script>
+        // --- THE 50 LAYOUT DATABASE ---
+        // I will generate compact HTML strings for distinct layout types.
+        
+        const layouts = [
+            // --- E-COMMERCE (1-8) ---
+            { cat: "Ecom", name: "Modern Store Hero", desc: "Large hero image with product grid below.", 
+              code: `<body><nav style='padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between'><b>STORE</b><span>Cart (0)</span></nav><header style='height:300px;background:#f4f4f4;display:flex;align-items:center;justify-content:center'><h1>New Arrivals</h1></header><div style='display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:40px'><div style='height:200px;background:#eee'></div><div style='height:200px;background:#eee'></div><div style='height:200px;background:#eee'></div></div></body>` },
+            { cat: "Ecom", name: "Product Landing", desc: "Single product showcase with buy button.", 
+              code: `<body><div style='display:flex;height:100vh'><div style='flex:1;background:#eee'></div><div style='flex:1;padding:50px;display:flex;flex-direction:column;justify-content:center'><h1>Product Name</h1><p>Best quality item.</p><button style='background:#000;color:#fff;padding:15px;margin-top:20px'>Buy Now</button></div></div></body>` },
+            { cat: "Ecom", name: "Category Sidebar", desc: "Left sidebar filters with right grid.", 
+              code: `<body><nav style='padding:20px;background:#111;color:#fff'>Shop</nav><div style='display:flex'><aside style='width:200px;padding:20px;background:#f9f9f9'>Filter<br><br>Price<br>Size</aside><main style='flex:1;padding:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px'><div style='height:150px;background:#eee'></div><div style='height:150px;background:#eee'></div><div style='height:150px;background:#eee'></div></main></div></body>` },
+            { cat: "Ecom", name: "Dark Luxury Shop", desc: "Black and Gold premium store layout.", 
+              code: `<body><nav style='padding:20px;background:#000;color:#d4af37'>LUXURY</nav><header style='height:400px;background:#111;color:#fff;display:flex;align-items:center;justify-content:center'><h1>Exclusive Collection</h1></header><div style='padding:40px;background:#000'><div style='height:200px;border:1px solid #333'></div></div></body>` },
+            { cat: "Ecom", name: "Tech Digital Store", desc: "Grid for software/digital assets.", 
+              code: `<body><nav style='padding:20px;background:#0f0f0f;color:#fff'>DigiStore</nav><div style='padding:40px;background:#1a1a1a;color:#fff;display:grid;grid-template-columns:repeat(4,1fr);gap:20px'><div style='background:#222;padding:20px;border-radius:10px'>App 1</div><div style='background:#222;padding:20px;border-radius:10px'>App 2</div></div></body>` },
+            { cat: "Ecom", name: "Fashion Lookbook", desc: "Masonry style image gallery.", 
+              code: `<body><nav style='text-align:center;padding:20px'><b>VOGUE</b></nav><div style='column-count:3;gap:10px;padding:20px'><div style='height:300px;background:#eee;margin-bottom:10px'></div><div style='height:200px;background:#eee;margin-bottom:10px'></div><div style='height:400px;background:#eee;margin-bottom:10px'></div></div></body>` },
+            { cat: "Ecom", name: "Cart Page", desc: "Shopping cart checkout table.", 
+              code: `<body><div style='max-width:800px;margin:50px auto'><h1>Your Cart</h1><div style='border-bottom:1px solid #ccc;padding:20px;display:flex;justify-content:space-between'><span>Item 1</span><span>$50</span></div><div style='border-bottom:1px solid #ccc;padding:20px;display:flex;justify-content:space-between'><span>Item 2</span><span>$20</span></div><button style='width:100%;padding:15px;background:#000;color:#fff;margin-top:20px'>Checkout</button></div></body>` },
+            { cat: "Ecom", name: "Mega Menu Header", desc: "Complex navigation bar structure.", 
+              code: `<body><nav style='padding:20px;border-bottom:1px solid #ccc'>Logo | Men | Women | Kids | Sale</nav><div style='height:200px;background:#f9f9f9;padding:20px;display:flex;gap:50px'><ul><li>T-Shirts</li><li>Jeans</li></ul><ul><li>Shoes</li><li>Bags</li></ul></div></body>` },
+
+            // --- PORTFOLIO (9-16) ---
+            { cat: "Portfolio", name: "Minimal Developer", desc: "Clean text-based intro and projects.", 
+              code: `<body><div style='max-width:800px;margin:100px auto;font-family:sans-serif'><h1>Hi, I'm Alex.</h1><p style='color:#666;font-size:1.5rem'>I build minimalist websites.</p><br><h3>Projects</h3><div style='padding:20px;background:#f4f4f4;margin-bottom:10px'>Project A</div><div style='padding:20px;background:#f4f4f4'>Project B</div></div></body>` },
+            { cat: "Portfolio", name: "Creative Agency", desc: "Bold typography and big images.", 
+              code: `<body><header style='height:100vh;background:#000;color:#fff;display:flex;align-items:center;padding:50px'><h1 style='font-size:5rem'>WE CREATE<br>DIGITAL ART.</h1></header><div style='padding:50px'><h2>Work</h2></div></body>` },
+            { cat: "Portfolio", name: "Photography Grid", desc: "Full width image grid.", 
+              code: `<body><div style='display:grid;grid-template-columns:repeat(3,1fr)'><div style='height:300px;background:#333'></div><div style='height:300px;background:#444'></div><div style='height:300px;background:#555'></div></div></body>` },
+            { cat: "Portfolio", name: "Dark Mode Resume", desc: "CV style dark layout.", 
+              code: `<body><div style='background:#111;color:#fff;min-height:100vh;padding:50px;display:flex'><aside style='width:300px'><h2>John Doe</h2><p>Dev</p></aside><main style='flex:1;border-left:1px solid #333;padding-left:40px'><h3>Experience</h3><p>Google (2020-2025)</p></main></div></body>` },
+            { cat: "Portfolio", name: "3D Card Portfolio", desc: "Floating cards for projects.", 
+              code: `<body><div style='display:flex;justify-content:center;gap:30px;padding:100px;background:#f0f0f0'><div style='width:200px;height:300px;background:#fff;box-shadow:0 10px 20px rgba(0,0,0,0.1)'></div><div style='width:200px;height:300px;background:#fff;box-shadow:0 10px 20px rgba(0,0,0,0.1)'></div></div></body>` },
+            { cat: "Portfolio", name: "Split Screen Personal", desc: "Image left, text right.", 
+              code: `<body><div style='display:flex;height:100vh'><div style='flex:1;background:#333'></div><div style='flex:1;display:flex;align-items:center;justify-content:center'><div><h1>My Name</h1><button>Contact</button></div></div></div></body>` },
+            { cat: "Portfolio", name: "Video Background", desc: "Hero section with video placeholder.", 
+              code: `<body><header style='height:100vh;background:#000;color:#fff;display:flex;align-items:center;justify-content:center'><h1>Video Reel</h1></header></body>` },
+            { cat: "Portfolio", name: "Horizontal Scroll", desc: "Sideways scrolling gallery layout.", 
+              code: `<body><div style='display:flex;overflow-x:auto;height:100vh;background:#222'><div style='min-width:80vw;border-right:1px solid #444'></div><div style='min-width:80vw;border-right:1px solid #444'></div></div></body>` },
+
+            // --- CORPORATE (17-24) ---
+            { cat: "Corporate", name: "SaaS Landing", desc: "Modern software product page.", 
+              code: `<body><nav style='padding:20px;display:flex;justify-content:space-between'><b>SaaS</b><button>Login</button></nav><header style='text-align:center;padding:100px 20px'><h1>Grow your business</h1><p>The best platform.</p><button style='background:blue;color:white;padding:10px 20px;border:none'>Start Free</button></header></body>` },
+            { cat: "Corporate", name: "Business Agency", desc: "Services, About, Contact structure.", 
+              code: `<body><header style='height:400px;background:#003366;color:white;padding:50px'><h1>Consulting Firm</h1></header><div style='padding:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px'><div style='padding:20px;border:1px solid #ddd'>Service 1</div><div style='padding:20px;border:1px solid #ddd'>Service 2</div></div></body>` },
+            { cat: "Corporate", name: "Pricing Table", desc: "3 Column pricing comparison.", 
+              code: `<body><div style='display:flex;gap:20px;padding:50px;justify-content:center'><div style='border:1px solid #ddd;padding:30px'><h3>Basic</h3><h1>$10</h1></div><div style='border:1px solid #000;padding:30px;transform:scale(1.1)'><h3>Pro</h3><h1>$20</h1></div><div style='border:1px solid #ddd;padding:30px'><h3>Enterprise</h3><h1>$99</h1></div></div></body>` },
+            { cat: "Corporate", name: "App Download", desc: "Mobile app showcase layout.", 
+              code: `<body><div style='display:flex;align-items:center;padding:50px;height:100vh;background:#f4f4f4'><div style='flex:1'><h1>Get the App</h1><button>App Store</button></div><div style='flex:1;height:500px;background:#ddd;border-radius:30px'></div></div></body>` },
+            { cat: "Corporate", name: "Real Estate", desc: "Property listing search.", 
+              code: `<body><header style='height:400px;background:#333;color:#fff;padding:50px'><h1>Find Home.</h1><input placeholder='Search City...' style='padding:10px;width:300px'></header></body>` },
+            { cat: "Corporate", name: "Law Firm", desc: "Traditional professional layout.", 
+              code: `<body><nav style='background:#4a0000;color:#fff;padding:20px'>Justice.</nav><div style='padding:50px'><h2>Our Attorneys</h2><br><div style='display:flex;gap:20px'><div style='width:200px;height:200px;background:#eee'></div></div></div></body>` },
+            { cat: "Corporate", name: "Gym / Fitness", desc: "Energetic layout with classes.", 
+              code: `<body><header style='background:#000;color:#ff0000;height:500px;display:flex;align-items:center;justify-content:center'><h1>TRAIN HARD</h1></header></body>` },
+            { cat: "Corporate", name: "Bank / Finance", desc: "Clean trust-based layout.", 
+              code: `<body><nav style='background:#0055aa;color:#fff;padding:20px'>BankCorp</nav><div style='padding:50px;text-align:center'><h2>Secure Banking</h2><div style='display:flex;justify-content:center;gap:20px;margin-top:20px'><div style='width:200px;height:100px;background:#eee'>Checking</div><div style='width:200px;height:100px;background:#eee'>Saving</div></div></div></body>` },
+
+            // --- GAMING (25-32) ---
+            { cat: "Gaming", name: "Esports Team", desc: "Neon black/green clan page.", 
+              code: `<body><div style='background:#000;color:#0f0;min-height:100vh;font-family:monospace'><nav style='padding:20px;border-bottom:1px solid #0f0'>TEAM VIPER</nav><header style='text-align:center;padding:100px'><h1>WE ARE CHAMPIONS</h1><button style='background:#0f0;border:none;padding:10px 30px'>JOIN US</button></header></div></body>` },
+            { cat: "Gaming", name: "Game Store", desc: "Dark mode game library.", 
+              code: `<body><div style='background:#1a1a1a;color:#fff;min-height:100vh'><nav style='padding:20px;background:#222'>GameHub</nav><div style='padding:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px'><div style='background:#333;height:200px'>Game 1</div><div style='background:#333;height:200px'>Game 2</div></div></div></body>` },
+            { cat: "Gaming", name: "Streamer Profile", desc: "Twitch style layout.", 
+              code: `<body><div style='background:#111;color:#fff;height:100vh;display:flex'><aside style='width:80px;background:#222'></aside><main style='flex:1;padding:20px'><div style='height:400px;background:#000'>Stream Video</div><br><h2>Chat</h2></main></div></body>` },
+            { cat: "Gaming", name: "Tournament Bracket", desc: "Competition tree structure.", 
+              code: `<body><div style='background:#0b0b0b;color:#fff;min-height:100vh;padding:50px;display:flex;justify-content:space-around'><div style='border:1px solid #555;padding:10px'>Team A</div><div style='border:1px solid #d4af37;padding:10px'>Winner</div><div style='border:1px solid #555;padding:10px'>Team B</div></div></body>` },
+            { cat: "Gaming", name: "Cyberpunk Blog", desc: "Glitchy neon blog post.", 
+              code: `<body><div style='background:#000022;color:#f0f;padding:50px;font-family:sans-serif'><h1 style='text-shadow:2px 2px cyan'>CYBER NEWS</h1><p>Future is here.</p></div></body>` },
+            { cat: "Gaming", name: "Server Status", desc: "System monitor dashboard.", 
+              code: `<body><div style='background:#000;color:#0f0;padding:50px'><h1>Server Status</h1><br><div>EU West: <span style='background:green;color:white;padding:2px 5px'>ONLINE</span></div><br><div>NA East: <span style='background:red;color:white;padding:2px 5px'>OFFLINE</span></div></div></body>` },
+            { cat: "Gaming", name: "Character Select", desc: "Hero selection cards.", 
+              code: `<body><div style='background:#222;height:100vh;display:flex;align-items:center;justify-content:center;gap:20px'><div style='width:100px;height:300px;background:#555;border:2px solid gold'>Hero 1</div><div style='width:100px;height:300px;background:#555'>Hero 2</div></div></body>` },
+            { cat: "Gaming", name: "Wiki / Guide", desc: "Documentation sidebar layout.", 
+              code: `<body><div style='display:flex'><aside style='width:250px;background:#eee;height:100vh;padding:20px'>Items<br>Maps<br>Bosses</aside><main style='padding:40px'><h1>Boss Guide</h1></main></div></body>` },
+
+            // --- EDUCATION (33-40) ---
+            { cat: "Education", name: "University Home", desc: "Classic academic header and slider.", 
+              code: `<body><header style='background:#002244;color:#fff;padding:20px'>UNIVERSITY OF TECH</header><div style='height:400px;background:#eee;display:flex;align-items:center;justify-content:center'><h1>Admissions Open 2026</h1></div></body>` },
+            { cat: "Education", name: "Course Dashboard", desc: "LMS Student portal.", 
+              code: `<body><div style='display:flex;height:100vh'><aside style='width:250px;background:#2c3e50;color:#fff;padding:20px'>My Courses<br>Grades</aside><main style='padding:40px'><h2>My Progress</h2><div style='width:100%;height:20px;background:#ddd'><div style='width:70%;height:100%;background:green'></div></div></main></div></body>` },
+            { cat: "Education", name: "Online Course Page", desc: "Video player and syllabus.", 
+              code: `<body><div style='max-width:1000px;margin:auto'><header style='height:400px;background:#000'></header><div style='display:flex'><div style='flex:2;padding:20px'><h1>Lesson 1</h1></div><div style='flex:1;background:#f9f9f9;padding:20px'>Syllabus</div></div></div></body>` },
+            { cat: "Education", name: "School Event", desc: "Calendar and notice board.", 
+              code: `<body><header style='background:orange;padding:50px;text-align:center'><h1>Annual Sports Day</h1></header><div style='padding:50px;display:grid;grid-template-columns:1fr 1fr;gap:40px'><div><h2>Schedule</h2></div><div><h2>Notices</h2></div></div></body>` },
+            { cat: "Education", name: "Library Search", desc: "Book database search UI.", 
+              code: `<body><div style='padding:50px;text-align:center;background:#f4ebd0;height:100vh'><h1>Library</h1><input placeholder='Search Books...' style='padding:15px;width:500px'></div></body>` },
+            { cat: "Education", name: "Teacher Profile", desc: "Academic staff bio.", 
+              code: `<body><div style='max-width:800px;margin:50px auto;display:flex;gap:40px'><div style='width:200px;height:200px;background:#ddd;border-radius:50%'></div><div><h1>Dr. Smith</h1><p>Professor of Physics</p></div></div></body>` },
+            { cat: "Education", name: "Kids Kindergarten", desc: "Colorful playful layout.", 
+              code: `<body><nav style='background:#ffeb3b;padding:20px'>Happy Kids</nav><header style='background:#ff9800;color:white;padding:50px;text-align:center'><h1>Play & Learn</h1></header><div style='display:flex;padding:20px;gap:20px'><div style='flex:1;background:#4caf50;height:100px'></div><div style='flex:1;background:#2196f3;height:100px'></div></div></body>` },
+            { cat: "Education", name: "Research Lab", desc: "Clean scientific layout.", 
+              code: `<body><header style='background:#fff;border-bottom:2px solid #0055aa;padding:20px'><h2>Science Lab</h2></header><div style='padding:50px;background:#f0f8ff;height:100vh'><h3>Recent Publications</h3></div></body>` },
+
+            // --- SOCIAL & OTHERS (41-50) ---
+            { cat: "Social", name: "Social Feed", desc: "Facebook/Twitter style feed.", 
+              code: `<body><div style='max-width:600px;margin:auto;background:#f0f2f5;min-height:100vh'><nav style='background:#fff;padding:15px;position:sticky;top:0'>SocialApp</nav><div style='margin-top:20px;background:#fff;padding:20px;border-radius:10px'>Post 1...</div><div style='margin-top:20px;background:#fff;padding:20px;border-radius:10px'>Post 2...</div></div></body>` },
+            { cat: "Social", name: "Instagram Profile", desc: "Grid photos and bio header.", 
+              code: `<body><div style='max-width:800px;margin:auto;padding:20px'><header style='display:flex;gap:40px;padding-bottom:40px;border-bottom:1px solid #ddd'><div style='width:150px;height:150px;background:#ddd;border-radius:50%'></div><div><h2>Username</h2><button>Follow</button></div></header><div style='display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:20px'><div style='background:#eee;height:250px'></div><div style='background:#eee;height:250px'></div><div style='background:#eee;height:250px'></div></div></div></body>` },
+            { cat: "Social", name: "Chat Application", desc: "Sidebar contacts and chat window.", 
+              code: `<body><div style='display:flex;height:100vh'><aside style='width:300px;border-right:1px solid #ddd'>Contacts</aside><main style='flex:1;background:#f9f9f9;display:flex;flex-direction:column;justify-content:flex-end;padding:20px'><div style='background:#fff;padding:10px'>Type message...</div></main></div></body>` },
+            { cat: "Social", name: "Login Split", desc: "Image left, form right.", 
+              code: `<body><div style='display:flex;height:100vh'><div style='flex:1;background:#333'></div><div style='flex:1;display:flex;align-items:center;justify-content:center'><form><h2>Login</h2><input placeholder='Email'><br><br><input placeholder='Password'><br><br><button>Sign In</button></form></div></div></body>` },
+            { cat: "Social", name: "Settings Dashboard", desc: "Sidebar with form fields.", 
+              code: `<body><div style='display:flex;height:100vh'><aside style='width:250px;background:#f4f4f4;padding:20px'>General<br>Security<br>Notifications</aside><main style='padding:40px'><h1>Settings</h1><hr><br>Username<br><input></main></div></body>` },
+            { cat: "Social", name: "Blog Magazine", desc: "Grid with featured article.", 
+              code: `<body><nav style='padding:20px;border-bottom:1px solid #000;text-align:center'><b>THE DAILY</b></nav><div style='padding:40px'><div style='height:400px;background:#ddd;margin-bottom:40px'>Featured Story</div><div style='display:grid;grid-template-columns:1fr 1fr;gap:40px'><div style='height:200px;background:#eee'></div><div style='height:200px;background:#eee'></div></div></div></body>` },
+            { cat: "Social", name: "404 Error Page", desc: "Creative not found layout.", 
+              code: `<body><div style='height:100vh;background:#111;color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column'><h1 style='font-size:10rem;margin:0'>404</h1><p>Page lost in space.</p><button>Go Home</button></div></body>` },
+            { cat: "Social", name: "Coming Soon", desc: "Countdown timer page.", 
+              code: `<body><div style='height:100vh;background:linear-gradient(45deg, #ff9a9e, #fad0c4);display:flex;align-items:center;justify-content:center;flex-direction:column'><h1>Coming Soon</h1><div style='font-size:3rem;margin-top:20px'>00 : 00 : 00</div></div></body>` },
+            { cat: "Social", name: "Review/Testimonial", desc: "Grid of user reviews.", 
+              code: `<body><div style='background:#003366;color:#fff;padding:50px;text-align:center'><h2>What Clients Say</h2><div style='display:flex;gap:20px;margin-top:40px;justify-content:center'><div style='background:#fff;color:#000;padding:20px;width:300px;border-radius:10px'>"Great Service!"</div><div style='background:#fff;color:#000;padding:20px;width:300px;border-radius:10px'>"Amazing!"</div></div></div></body>` },
+            { cat: "Social", name: "Contact Us", desc: "Map and form layout.", 
+              code: `<body><div style='display:flex;height:100vh'><div style='flex:1;background:#ddd;display:flex;align-items:center;justify-content:center'>Google Map</div><div style='flex:1;padding:50px'><h1>Contact Us</h1><form><input placeholder='Name' style='width:100%;margin-bottom:10px'><textarea placeholder='Message' style='width:100%;height:100px'></textarea><button>Send</button></form></div></div></body>` },
+        ];
+
+        // --- RENDER LOGIC ---
+        const grid = document.getElementById('grid');
+
+        function renderGrid(filter) {
+            grid.innerHTML = '';
+            
+            layouts.forEach((item, index) => {
+                // Filter logic
+                if (filter !== 'all' && item.cat !== filter) return;
+
+                const card = document.createElement('div');
+                card.className = 'layout-card';
+                card.innerHTML = `
+                    <div class="preview-box" id="prev-${index}">
+                        <div class="overlay" onclick="loadPreview(${index})">
+                            <div class="play-btn"><i class="fas fa-eye"></i></div>
+                            <span>View Layout</span>
+                        </div>
+                        <div class="close-preview" onclick="closePreview(${index})"><i class="fas fa-times"></i></div>
+                        <iframe class="iframe-wrapper"></iframe>
+                    </div>
+                    <div class="card-body">
+                        <span class="tag">${item.cat}</span>
+                        <div class="title">${item.name}</div>
+                        <div class="desc">${item.desc}</div>
+                        <button class="copy-btn" onclick="copyCode(${index}, this)">
+                            <i class="far fa-copy"></i> Copy Source
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Update Active Tab
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.innerText === filter || (filter === 'all' && btn.innerText === 'All')) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // --- PREVIEW SYSTEM ---
+        function loadPreview(index) {
+            const box = document.getElementById(`prev-${index}`);
+            const iframe = box.querySelector('iframe');
+            const code = layouts[index].code;
+
+            // UI Changes
+            box.querySelector('.overlay').style.display = 'none';
+            box.querySelector('.close-preview').style.display = 'flex';
+            iframe.style.display = 'block';
+
+            // Inject Code
+            const doc = iframe.contentWindow.document;
+            doc.open();
+            doc.write(code);
+            doc.close();
+        }
+
+        function closePreview(index) {
+            const box = document.getElementById(`prev-${index}`);
+            const iframe = box.querySelector('iframe');
+
+            box.querySelector('.overlay').style.display = 'flex';
+            box.querySelector('.close-preview').style.display = 'none';
+            iframe.style.display = 'none';
+        }
+
+        // --- COPY SYSTEM ---
+        function copyCode(index, btn) {
+            const code = layouts[index].code;
+            
+            // Adding DOCTYPE for a complete file
+            const fullCode = `<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>Layout</title>\n<style>\n  body{margin:0;font-family:sans-serif;}\n</style>\n</head>\n${code}\n</html>`;
+
+            navigator.clipboard.writeText(fullCode).then(() => {
+                let original = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btn.style.background = '#d4af37';
+                setTimeout(() => {
+                    btn.innerHTML = original;
+                    btn.style.background = '#111';
+                }, 2000);
+            });
+        }
+
+        // Initial Render
+        renderGrid('all');
+
+    </script>
+</body>
+</html>

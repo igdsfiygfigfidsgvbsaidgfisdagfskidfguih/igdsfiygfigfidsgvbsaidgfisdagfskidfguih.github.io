@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Download full website source codes, premium HTML templates, and complete web projects for free.">
+    <meta name="keywords" content="Website Source Code, Free HTML Templates, Web Projects Zip, Full Website Download">
+    <meta name="author" content="NextGen Adi">
+
+    <title>NextGenAdi4U | Full Website Projects</title>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6262033771925685"
+     crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --bg-body: #f4f4f9;
+            --gold-main: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3d467 100%);
+            --text-dark: #1a1a1a;
+            --glass-card: rgba(255, 255, 255, 0.85);
+            --shadow-card: 0 15px 35px rgba(0,0,0,0.08);
+            --border-light: rgba(0,0,0,0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body { background: var(--bg-body); color: var(--text-dark); overflow-x: hidden; }
+
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(255,255,255,0.9);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            backdrop-filter: blur(20px);
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: #000; text-decoration: none; }
+        .logo span { color: var(--gold-main); }
+
+        .nav-right { display: flex; align-items: center; gap: 15px; }
+
+        .back-btn-header {
+            text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 0.85rem;
+            padding: 8px 20px; border: 1px solid var(--gold-main); border-radius: 50px;
+            transition: 0.3s; display: flex; align-items: center; gap: 8px; background: transparent;
+        }
+        .back-btn-header:hover { background: var(--gold-main); color: #fff; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3); transform: translateX(-3px); }
+
+        /* --- HEADER --- */
+        .header { text-align: center; padding: 120px 20px 50px; }
+        .header h1 { font-size: 3rem; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .header p { color: #666; max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+        .badge { background: #111; color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; margin-top: 15px; display: inline-block;}
+
+        /* --- GRID --- */
+        .grid-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px 100px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;
+        }
+
+        /* --- PROJECT CARD --- */
+        .project-card {
+            background: var(--glass-card); border-radius: 16px; overflow: hidden;
+            box-shadow: var(--shadow-card); transition: all 0.4s ease; 
+            border: 1px solid var(--border-light); display: flex; flex-direction: column;
+            position: relative;
+        }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); border-color: var(--gold-main); }
+
+        .card-icon-area {
+            height: 140px; background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3rem; color: var(--gold-main);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; text-align: center; }
+        .cat-tag { 
+            font-size: 0.7rem; color: #fff; background: #222; padding: 4px 12px; 
+            border-radius: 20px; text-transform: uppercase; font-weight: 700;
+            align-self: center; margin-bottom: 15px;
+        }
+        
+        .title { font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; color: #111; }
+        .desc { font-size: 0.95rem; color: #666; margin-bottom: 25px; line-height: 1.6; }
+        
+        /* DOWNLOAD BUTTON */
+        .download-btn {
+            margin-top: auto; padding: 14px; width: 100%; 
+            background: #111; color: #fff; text-decoration: none;
+            border-radius: 8px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 10px;
+            transition: 0.3s; font-size: 1rem;
+        }
+        .download-btn:hover { background: var(--gold-main); color: #000; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); }
+
+        /* --- INFO CONTENT (AdSense Required Text) --- */
+        .info-content {
+            max-width: 1000px; margin: 0 auto 60px; padding: 40px; background: #fff;
+            border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center;
+        }
+        .info-content h3 { font-size: 2rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+        .info-content p { color: #666; line-height: 1.8; margin-bottom: 15px; }
+
+        /* --- FOOTER --- */
+        footer { background: #fff; border-top: 1px solid #eee; padding: 60px 20px 30px; }
+        .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-col h4 { font-size: 1.2rem; margin-bottom: 25px; font-family: 'Playfair Display', serif; }
+        .footer-col ul li { list-style: none; margin-bottom: 12px; }
+        .footer-col ul li a { color: #666; text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--gold-main); }
+        .copyright { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #f0f0f0; color: #999; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .grid-container { grid-template-columns: 1fr; }
+            .nav-right { gap: 10px; }
+            .back-btn-header span { display: none; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <nav class="navbar">
+        <a href="code.html" class="logo">NextGen<span>Adi</span></a>
+        <div class="nav-right">
+            <a href="code.html" class="back-btn-header">
+                <i class="fas fa-arrow-left"></i> <span>Back Library</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="header">
+        <h1>Full <span style="color:var(--gold-main)">Projects</span></h1>
+        <p>Download complete source codes ready for deployment.</p>
+        <span class="badge">ZIP FILES INCLUDED</span>
+    </div>
+
+    <div class="grid-container">
+
+        <div class="project-card">
+            <div class="card-icon-area"><i class="fas fa-shopping-cart"></i></div>
+            <div class="card-body">
+                <span class="cat-tag">E-Commerce</span>
+                <div class="title">MegaShop - Full Store</div>
+                <div class="desc">Complete e-commerce website with cart, checkout, and product pages. Fully responsive HTML5/CSS3.</div>
+                
+                <a href="#" target="_blank" class="download-btn">
+                    Download Source <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-icon-area"><i class="fas fa-user-tie"></i></div>
+            <div class="card-body">
+                <span class="cat-tag">Portfolio</span>
+                <div class="title">DevFolio - 3D Personal</div>
+                <div class="desc">A high-end personal portfolio template with Three.js animations and dark mode support.</div>
+                
+                <a href="#" target="_blank" class="download-btn">
+                    Download Source <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-icon-area"><i class="fas fa-chart-line"></i></div>
+            <div class="card-body">
+                <span class="cat-tag">Admin</span>
+                <div class="title">NextAdmin - Dashboard</div>
+                <div class="desc">Professional admin panel layout with charts, tables, and sidebar navigation logic included.</div>
+                
+                <a href="#" target="_blank" class="download-btn">
+                    Download Source <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-icon-area"><i class="fas fa-utensils"></i></div>
+            <div class="card-body">
+                <span class="cat-tag">App</span>
+                <div class="title">FoodDelivery - UI Kit</div>
+                <div class="desc">Mobile-first food delivery website design. Includes home, menu, and tracking page layouts.</div>
+                
+                <a href="#" target="_blank" class="download-btn">
+                    Download Source <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-icon-area"><i class="fas fa-newspaper"></i></div>
+            <div class="card-body">
+                <span class="cat-tag">Blog</span>
+                <div class="title">TechNews - Magazine</div>
+                <div class="desc">Modern news portal template with grid layout, featured posts, and newsletter section.</div>
+                
+                <a href="#" target="_blank" class="download-btn">
+                    Download Source <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="card-icon-area"><i class="fas fa-plane-departure"></i></div>
+            <div class="card-body">
+                <span class="cat-tag">Travel</span>
+                <div class="title">Wanderlust - Booking</div>
+                <div class="desc">Travel agency landing page with search functionality animations and gallery sections.</div>
+                
+                <a href="#" target="_blank" class="download-btn">
+                    Download Source <i class="fas fa-download"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="info-content" data-aos="fade-up">
+        <h3>Premium Web Projects for Free</h3>
+        <p>Download full-stack ready website templates and source codes. Our "Full Websites" collection includes carefully crafted projects ranging from E-commerce platforms to Personal Portfolios. All files are provided in ZIP format containing HTML, CSS, and JavaScript assets.</p>
+        <p>Perfect for students, freelancers, and developers looking to speed up their workflow. Simply click "Download Source" to get the complete repository instantly.</p>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>NextGen Themes</h4>
+                <p style="color:#777;">The #1 Marketplace for premium digital assets.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="code.html">Code Library</a></li>
+                    <li><a href="https://nextgenadi4u.online">Main Site</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 NextGenAdi4U. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        particlesJS("particles-js", {
+            "particles": { "number": { "value": 60 }, "color": { "value": "#aaaaaa" }, "shape": { "type": "triangle" }, "opacity": { "value": 0.3 }, "size": { "value": 4 }, "line_linked": { "enable": true, "distance": 150, "color": "#aaaaaa", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1.5 } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "bubble" } } }, "retina_detect": true
+        });
+    </script>
+</body>
+</html>

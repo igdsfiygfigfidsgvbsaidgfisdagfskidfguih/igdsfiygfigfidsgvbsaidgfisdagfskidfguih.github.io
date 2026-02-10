@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="NextGen Code Library - Download premium CSS snippets, HTML layouts, background animations, and full website source codes.">
+    <meta name="keywords" content="CSS Codes, HTML Layouts, Website Backgrounds, Source Code, Web Development Assets">
+    <meta name="author" content="NextGen Adi">
+
     <title>NextGen | Code Library</title>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6262033771925685"
+     crossorigin="anonymous"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
@@ -42,116 +47,82 @@
         /* --- NAVBAR --- */
         .navbar {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%;
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(15px);
+            padding: 15px 6%; position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255,255,255,0.5);
         }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            text-decoration: none;
-        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 800; color: var(--text-dark); text-decoration: none; }
         .logo span { color: var(--gold-main); }
 
-        .back-btn {
-            font-size: 0.9rem; font-weight: 600; color: var(--text-dark);
-            text-decoration: none; display: flex; align-items: center; gap: 8px;
-            transition: 0.3s;
+        .nav-right { display: flex; align-items: center; gap: 15px; }
+
+        .back-btn-header {
+            text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 0.85rem;
+            padding: 8px 20px; border: 1px solid var(--gold-main); border-radius: 50px;
+            transition: 0.3s; display: flex; align-items: center; gap: 8px; background: transparent;
         }
-        .back-btn:hover { color: var(--gold-main); transform: translateX(-5px); }
+        .back-btn-header:hover { background: var(--gold-main); color: #fff; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3); transform: translateX(-3px); }
 
         /* --- HEADER SECTION --- */
-        .page-header {
-            text-align: center; padding: 150px 20px 60px;
+        .page-header { text-align: center; padding: 120px 20px 40px; }
+        .page-header h1 { font-size: 3.5rem; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+        .page-header p { color: var(--text-light); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+
+        /* --- ADSENSE CONTAINER --- */
+        .ad-container {
+            width: 100%; max-width: 900px; margin: 20px auto 50px; padding: 10px;
+            background: rgba(255,255,255,0.4); border: 1px dashed #aaa;
+            text-align: center; min-height: 100px; display: flex; align-items: center; justify-content: center;
+            border-radius: 10px;
         }
-        .page-header h1 {
-            font-size: 3.5rem; margin-bottom: 15px; font-family: 'Playfair Display', serif;
-        }
-        .page-header p {
-            color: var(--text-light); max-width: 600px; margin: 0 auto; font-size: 1.1rem;
-        }
+        .ad-label { font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
 
         /* --- CATEGORY GRID --- */
-        .category-container {
-            max-width: 1200px; margin: 0 auto; padding-bottom: 100px; padding: 0 30px 100px;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
+        .category-container { max-width: 1200px; margin: 0 auto; padding-bottom: 50px; padding: 0 30px 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
 
         /* --- CLICKABLE CARD DESIGN --- */
         .code-card {
-            background: var(--glass-card);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,1);
-            box-shadow: var(--shadow-card);
-            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            position: relative;
-            text-decoration: none; /* Removes link underline */
-            display: block; /* Makes anchor tag a block */
-            overflow: hidden;
+            background: var(--glass-card); backdrop-filter: blur(10px); border-radius: 20px;
+            padding: 40px 30px; text-align: center; border: 1px solid rgba(255,255,255,1);
+            box-shadow: var(--shadow-card); transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative; text-decoration: none; display: block; overflow: hidden;
         }
-
-        /* Hover Effects */
-        .code-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-            background: rgba(255, 255, 255, 0.95);
-            border-color: rgba(197, 160, 89, 0.4);
-        }
-
-        /* Icon Styling */
-        .icon-box {
-            width: 80px; height: 80px;
-            background: linear-gradient(135deg, #fff 0%, #f7f7f7 100%);
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; color: var(--gold-main);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: 0.5s;
-        }
-
-        .code-card:hover .icon-box {
-            background: var(--gold-gradient);
-            color: #fff;
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        .code-card h2 {
-            font-size: 1.5rem; color: var(--text-dark); margin-bottom: 10px; font-weight: 700;
-        }
+        .code-card:hover { transform: translateY(-15px); box-shadow: var(--shadow-hover); background: rgba(255, 255, 255, 0.95); border-color: rgba(197, 160, 89, 0.4); }
         
-        .code-card p {
-            font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px;
+        .icon-box {
+            width: 80px; height: 80px; background: linear-gradient(135deg, #fff 0%, #f7f7f7 100%);
+            border-radius: 50%; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: var(--gold-main); box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.5s;
         }
+        .code-card:hover .icon-box { background: var(--gold-gradient); color: #fff; transform: scale(1.1) rotate(10deg); }
+        .code-card h2 { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 10px; font-weight: 700; }
+        .code-card p { font-size: 0.95rem; color: var(--text-light); margin-bottom: 20px; }
+        .arrow-icon { font-size: 1.2rem; color: var(--gold-main); opacity: 0; transform: translateX(-20px); transition: 0.4s; }
+        .code-card:hover .arrow-icon { opacity: 1; transform: translateX(0); }
 
-        /* Arrow Indicator */
-        .arrow-icon {
-            font-size: 1.2rem; color: var(--gold-main);
-            opacity: 0; transform: translateX(-20px);
-            transition: 0.4s;
+        /* --- INFO CONTENT (SEO) --- */
+        .info-content {
+            max-width: 1000px; margin: 0 auto 60px; padding: 40px; background: rgba(255,255,255,0.6);
+            border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: center; border: 1px solid rgba(255,255,255,0.8);
         }
+        .info-content h3 { font-size: 1.8rem; margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+        .info-content p { color: #555; line-height: 1.8; }
 
-        .code-card:hover .arrow-icon {
-            opacity: 1; transform: translateX(0);
-        }
+        /* --- FOOTER --- */
+        footer { background: #fff; border-top: 1px solid #eee; padding: 60px 20px 30px; margin-top: 50px;}
+        .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-col h4 { font-size: 1.2rem; margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+        .footer-col ul li { list-style: none; margin-bottom: 10px; }
+        .footer-col ul li a { color: #666; text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--gold-main); }
+        .copyright { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #f0f0f0; color: #999; font-size: 0.8rem; }
 
-        /* Mobile */
         @media (max-width: 768px) {
             .page-header h1 { font-size: 2.5rem; }
             .grid { grid-template-columns: 1fr; }
+            .nav-right { gap: 10px; }
+            .back-btn-header span { display: none; }
         }
     </style>
 </head>
@@ -160,8 +131,12 @@
     <div id="particles-js"></div>
 
     <nav class="navbar" data-aos="fade-down">
-        <a href="index.html" class="logo">NextGen<span>Adi</span></a>
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back Home</a>
+        <div class="logo">NextGen<span>Adi</span></div>
+        <div class="nav-right">
+            <a href="https://nextgenadi4u.online" class="back-btn-header">
+                <i class="fas fa-arrow-left"></i> <span>Back to Main Site</span>
+            </a>
+        </div>
     </nav>
 
     <header class="page-header" data-aos="fade-up">
@@ -169,40 +144,37 @@
         <p>Select a category to explore premium snippets and designs.</p>
     </header>
 
+    <div class="ad-container">
+        <span class="ad-label">Advertisement</span>
+        <div style="color:#aaa; font-size:0.8rem;">[ Auto Ads Will Appear Here ]</div>
+    </div>
+
     <section class="category-container">
         <div class="grid">
 
             <a href="backgrounds.html" class="code-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon-box">
-                    <i class="fas fa-layer-group"></i>
-                </div>
+                <div class="icon-box"><i class="fas fa-layer-group"></i></div>
                 <h2>Background Codes</h2>
                 <p>Animated particles, gradients, and abstract geometric backgrounds.</p>
                 <div class="arrow-icon"><i class="fas fa-long-arrow-alt-right"></i></div>
             </a>
 
             <a href="css-codes.html" class="code-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon-box">
-                    <i class="fab fa-css3-alt"></i>
-                </div>
+                <div class="icon-box"><i class="fab fa-css3-alt"></i></div>
                 <h2>CSS Elements</h2>
                 <p>Buttons, Cards, Navbars, and advanced animations.</p>
                 <div class="arrow-icon"><i class="fas fa-long-arrow-alt-right"></i></div>
             </a>
 
             <a href="html-codes.html" class="code-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="icon-box">
-                    <i class="fab fa-html5"></i>
-                </div>
+                <div class="icon-box"><i class="fab fa-html5"></i></div>
                 <h2>HTML Layouts</h2>
                 <p>Full page structures, forms, and semantic markup templates.</p>
                 <div class="arrow-icon"><i class="fas fa-long-arrow-alt-right"></i></div>
             </a>
 
             <a href="full-websites.html" class="code-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="icon-box">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
+                <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
                 <h2>Full Websites</h2>
                 <p>Complete, ready-to-deploy website source codes.</p>
                 <div class="arrow-icon"><i class="fas fa-long-arrow-alt-right"></i></div>
@@ -211,11 +183,48 @@
         </div>
     </section>
 
+    <section class="info-content" data-aos="fade-up">
+        <h3>Premium Coding Resources</h3>
+        <p>Welcome to the NextGen Code Library. Here you can find a curated collection of high-performance coding snippets designed for modern web development. Whether you need a stunning animated background, a responsive HTML layout, or advanced CSS components, our library has you covered. All codes are free to use and optimized for speed.</p>
+    </section>
+
+    <div class="ad-container">
+        <span class="ad-label">Advertisement</span>
+        <div style="color:#aaa; font-size:0.8rem;">[ Auto Ads Will Appear Here ]</div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>NextGen Themes</h4>
+                <p style="color:#777; font-size:0.9rem;">Empowering developers with elite digital assets.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="disclaimer.html">Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shopify.html">Shopify Themes</a></li>
+                    <li><a href="https://nextgenadi4u.online">Main Site</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 NextGenAdi. All Rights Reserved.
+        </div>
+    </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
 
-        /* Same Particle Config for Continuity */
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": 60, "density": { "enable": true, "value_area": 900 } },
@@ -223,20 +232,10 @@
                 "shape": { "type": "triangle", "stroke": { "width": 0, "color": "#000000" } },
                 "opacity": { "value": 0.3, "random": true },
                 "size": { "value": 4, "random": true },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#aaaaaa",
-                    "opacity": 0.2,
-                    "width": 1
-                },
+                "line_linked": { "enable": true, "distance": 150, "color": "#aaaaaa", "opacity": 0.2, "width": 1 },
                 "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "out_mode": "out" }
             },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" } },
-                "modes": { "bubble": { "distance": 200, "size": 6, "duration": 2, "opacity": 0.8 }, "push": { "particles_nb": 4 } }
-            },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" } }, "modes": { "bubble": { "distance": 200, "size": 6, "duration": 2, "opacity": 0.8 }, "push": { "particles_nb": 4 } } },
             "retina_detect": true
         });
     </script>

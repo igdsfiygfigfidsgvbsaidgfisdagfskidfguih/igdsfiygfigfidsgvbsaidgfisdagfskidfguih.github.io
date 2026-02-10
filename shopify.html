@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Download Top 50 Premium Shopify Themes at 90% Discount. High converting, fast loading themes like Impulse, Prestige, and Motion.">
+    <meta name="keywords" content="Shopify Themes, Premium Shopify Templates, Cheap Shopify Themes, Impulse Theme Free, Prestige Theme Download">
+    <meta name="author" content="NextGen Adi">
+
+    <title>NextGenAdi4U | Premium Shopify Store</title>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6262033771925685"
+     crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        /* --- THEME VARIABLES --- */
+        :root {
+            --bg-body: #f4f4f9;
+            --gold-main: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3d467 100%);
+            --text-dark: #1a1a1a;
+            --glass-card: rgba(255, 255, 255, 0.9);
+            --shadow-card: 0 15px 35px rgba(0,0,0,0.08);
+            --border-light: rgba(0,0,0,0.05);
+            --danger: #ff4757;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body { background: var(--bg-body); color: var(--text-dark); overflow-x: hidden; }
+
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(255,255,255,0.9);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            backdrop-filter: blur(20px);
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: #000; text-decoration: none; }
+        .logo span { color: var(--gold-main); }
+
+        .nav-right { display: flex; align-items: center; gap: 15px; }
+
+        .back-btn-header {
+            text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 0.85rem;
+            padding: 8px 20px; border: 1px solid var(--gold-main); border-radius: 50px;
+            transition: 0.3s; display: flex; align-items: center; gap: 8px; background: transparent;
+        }
+        .back-btn-header:hover { background: var(--gold-main); color: #fff; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3); transform: translateX(-3px); }
+
+        /* --- HERO --- */
+        .header { text-align: center; padding: 130px 20px 40px; }
+        .header h1 { font-size: 3.5rem; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+        .header p { color: #666; max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+        .offer-badge { 
+            background: var(--danger); color: #fff; padding: 5px 20px; border-radius: 50px; 
+            font-size: 0.9rem; font-weight: 800; margin-top: 15px; display: inline-block;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4); animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* --- FILTERS --- */
+        .filter-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; padding: 0 20px; }
+        .filter-btn {
+            padding: 8px 25px; border: 1px solid #ddd; background: #fff; border-radius: 30px;
+            cursor: pointer; font-size: 0.9rem; transition: 0.3s; font-weight: 600;
+        }
+        .filter-btn:hover, .filter-btn.active { background: var(--text-dark); color: #fff; border-color: var(--text-dark); }
+
+        /* --- GRID --- */
+        .grid-container {
+            max-width: 1300px; margin: 0 auto; padding: 0 20px 100px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
+        }
+
+        /* --- THEME CARD --- */
+        .theme-card {
+            background: var(--glass-card); border-radius: 16px; overflow: hidden;
+            box-shadow: var(--shadow-card); transition: all 0.4s ease; 
+            border: 1px solid var(--border-light); display: flex; flex-direction: column;
+            position: relative;
+        }
+        .theme-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); border-color: var(--gold-main); }
+
+        .sale-tag {
+            position: absolute; top: 15px; right: 15px; background: var(--gold-gradient);
+            color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; z-index: 5;
+        }
+
+        .thumb-area {
+            height: 180px; background: #e0e0e0; position: relative; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: #aaa; font-weight: 700; text-transform: uppercase;
+            background-size: cover; background-position: center; transition: 0.5s;
+        }
+        .theme-card:hover .thumb-area { filter: brightness(1.1); }
+
+        .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .theme-cat { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .theme-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: #111; font-family: 'Playfair Display', serif; }
+        
+        .price-box { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 0.9rem; }
+        .new-price { color: var(--danger); font-size: 1.3rem; font-weight: 800; }
+        
+        .btn-row { display: flex; gap: 10px; margin-top: auto; }
+        .btn-preview, .btn-buy {
+            flex: 1; padding: 10px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;
+            text-align: center; cursor: pointer; text-decoration: none; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+        }
+        .btn-preview { border: 1px solid #ddd; color: #333; background: transparent; }
+        .btn-preview:hover { background: #f0f0f0; border-color: #ccc; }
+        
+        .btn-buy { background: #111; color: #fff; border: 1px solid #111; }
+        .btn-buy:hover { background: var(--gold-main); border-color: var(--gold-main); color: #000; }
+
+        /* --- PREVIEW MODAL --- */
+        .preview-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 2000; display: none;
+            justify-content: center; align-items: center; padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            width: 100%; max-width: 1200px; height: 90%; background: #fff;
+            border-radius: 10px; overflow: hidden; position: relative; display: flex; flex-direction: column;
+        }
+        .modal-header {
+            padding: 10px 20px; background: #111; color: #fff; display: flex; justify-content: space-between; align-items: center;
+        }
+        .modal-title { font-weight: bold; }
+        .close-modal { cursor: pointer; font-size: 1.2rem; color: #fff; }
+        .modal-frame { flex-grow: 1; width: 100%; border: none; background: #fff; }
+
+        /* --- FOOTER --- */
+        footer { background: #fff; border-top: 1px solid #eee; padding: 60px 20px 30px; }
+        .footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
+        .footer-col h4 { font-size: 1.2rem; margin-bottom: 25px; font-family: 'Playfair Display', serif; }
+        .footer-col ul li { list-style: none; margin-bottom: 12px; }
+        .footer-col ul li a { color: #666; text-decoration: none; transition: 0.3s; }
+        .footer-col ul li a:hover { color: var(--gold-main); }
+        .copyright { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #f0f0f0; color: #999; font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5rem; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">NextGen<span>Adi</span></a>
+        <div class="nav-right">
+            <a href="index.html" class="back-btn-header">
+                <i class="fas fa-arrow-left"></i> <span>Back Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="header">
+        <h1>Premium <span style="color:var(--gold-main)">Shopify</span> Store</h1>
+        <p>Architectural grade themes to skyrocket your conversion rate.</p>
+        <span class="offer-badge">FLAT 90% OFF SALE ENDS SOON</span>
+    </div>
+
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="renderThemes('all')">All Themes</button>
+        <button class="filter-btn" onclick="renderThemes('fashion')">Fashion</button>
+        <button class="filter-btn" onclick="renderThemes('tech')">Electronics</button>
+        <button class="filter-btn" onclick="renderThemes('beauty')">Beauty</button>
+        <button class="filter-btn" onclick="renderThemes('home')">Decor</button>
+    </div>
+
+    <div class="grid-container" id="theme-grid"></div>
+
+    <div class="preview-modal" id="demoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Theme Live Preview</div>
+                <div class="close-modal" onclick="closePreview()"><i class="fas fa-times"></i> Close</div>
+            </div>
+            <iframe class="modal-frame" id="demoFrame"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>NextGen Themes</h4>
+                <p style="color:#777;">Providing elite Shopify themes for dropshippers and brands since 2026.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="refund.html">Refunds</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="code.html">Code Xip</a></li>
+                    <li><a href="index.html">Main Site</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 NextGenAdi4U. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        /* --- 1. DATA GENERATOR (50 Themes) --- */
+        const themeNames = [
+            "Impulse", "Prestige", "Motion", "Warehouse", "Empire", "Symmetry", "Streamline", "Broadcast", "Pipeline", "Showcase",
+            "Focal", "Capital", "Flow", "Alchemy", "Venue", "Testament", "Icon", "Mr Parker", "Vantage", "Split",
+            "Colors", "District", "Kingdom", "Lorenza", "Modular", "Galleria", "Loft", "Spark", "Context", "Reach",
+            "Handy", "Zoom", "Sunrise", "Pacific", "Editions", "Launch", "Startup", "Vogue", "Label", "Boost",
+            "Turbo", "Flex", "Retina", "Parallax", "Mobilia", "Responsive", "Artisan", "Maker", "Providence", "Canopy"
+        ];
+
+        const categories = ["fashion", "tech", "beauty", "home"];
+        const themes = [];
+
+        themeNames.forEach((name, index) => {
+            const cat = categories[index % categories.length];
+            const oldPrice = Math.floor(Math.random() * (450 - 250 + 1) + 250);
+            const newPrice = Math.floor(Math.random() * (29 - 19 + 1) + 19);
+
+            themes.push({
+                id: index,
+                name: name + " Premium",
+                category: cat,
+                oldPrice: oldPrice,
+                newPrice: newPrice,
+                color: `hsl(${Math.random() * 360}, 70%, 80%)` 
+            });
+        });
+
+        /* --- 2. RENDER FUNCTION --- */
+        const grid = document.getElementById('theme-grid');
+
+        function renderThemes(filter) {
+            grid.innerHTML = ''; 
+
+            themes.forEach(theme => {
+                if (filter !== 'all' && theme.category !== filter) return;
+
+                const card = document.createElement('div');
+                card.className = 'theme-card';
+                card.innerHTML = `
+                    <div class="sale-tag">90% OFF</div>
+                    <div class="thumb-area" style="background: linear-gradient(135deg, #f5f7fa 0%, ${theme.color} 100%);">
+                        ${theme.name.split(' ')[0]}
+                    </div>
+                    <div class="card-body">
+                        <span class="theme-cat">${theme.category}</span>
+                        <div class="theme-title">${theme.name}</div>
+                        <div class="price-box">
+                            <span class="old-price">$${theme.oldPrice}</span>
+                            <span class="new-price">$${theme.newPrice}</span>
+                        </div>
+                        <div class="btn-row">
+                            <button class="btn-preview" onclick="openPreview(${theme.id})"><i class="far fa-eye"></i> Preview</button>
+                            <a href="https://nextgenadi4u.online" target="_blank" class="btn-buy">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        /* --- 3. LIVE PREVIEW GENERATOR (The Magic) --- */
+        function openPreview(id) {
+            const theme = themes[id];
+            const modal = document.getElementById('demoModal');
+            const frame = document.getElementById('demoFrame');
+            document.getElementById('modalTitle').innerText = `Live Preview: ${theme.name}`;
+            
+            modal.style.display = 'flex';
+            
+            // Generate content based on category
+            let content = '';
+            if(theme.category === 'fashion') {
+                content = generateStoreHTML(theme.name, '#fff', '#000', 'Playfair Display', 'https://source.unsplash.com/random/1200x600?fashion');
+            } else if(theme.category === 'tech') {
+                content = generateStoreHTML(theme.name, '#111', '#0ff', 'Outfit', 'https://source.unsplash.com/random/1200x600?technology');
+            } else if(theme.category === 'beauty') {
+                content = generateStoreHTML(theme.name, '#fff0f5', '#d63384', 'Cormorant Garamond', 'https://source.unsplash.com/random/1200x600?makeup');
+            } else {
+                content = generateStoreHTML(theme.name, '#f4f4f9', '#555', 'Roboto', 'https://source.unsplash.com/random/1200x600?furniture');
+            }
+
+            const doc = frame.contentWindow.document;
+            doc.open();
+            doc.write(content);
+            doc.close();
+        }
+
+        function closePreview() {
+            document.getElementById('demoModal').style.display = 'none';
+        }
+
+        // Helper to generate fake store HTML
+        function generateStoreHTML(name, bg, accent, font, img) {
+            return `
+                <html>
+                <head>
+                    <link href="https://fonts.googleapis.com/css2?family=${font.replace(' ','+')}:wght@400;700&display=swap" rel="stylesheet">
+                    <style>
+                        body { margin: 0; font-family: '${font}', sans-serif; background: ${bg}; color: ${accent === '#111' ? '#000' : '#333'}; }
+                        .nav { padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+                        .hero { height: 400px; background: url('${img}') center/cover; display: flex; align-items: center; justify-content: center; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+                        .hero h1 { font-size: 3rem; margin: 0; }
+                        .grid { padding: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+                        .prod { background: rgba(255,255,255,0.5); height: 250px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,0.1); }
+                        .btn { padding: 10px 20px; background: ${accent}; color: ${bg === '#111' ? '#000' : '#fff'}; border: none; cursor: pointer; margin-top: 20px; }
+                        h2 { text-align: center; margin-top: 40px; color: ${accent}; }
+                    </style>
+                </head>
+                <body>
+                    <div class="nav">
+                        <h3>${name}</h3>
+                        <div>Home | Shop | Contact</div>
+                    </div>
+                    <div class="hero">
+                        <div style="text-align:center">
+                            <h1>New Collection 2026</h1>
+                            <button class="btn">Shop Now</button>
+                        </div>
+                    </div>
+                    <h2>Featured Products</h2>
+                    <div class="grid">
+                        <div class="prod">Product 1</div>
+                        <div class="prod">Product 2</div>
+                        <div class="prod">Product 3</div>
+                    </div>
+                </body>
+                </html>
+            `;
+        }
+
+        // Initialize
+        const btns = document.querySelectorAll('.filter-btn');
+        btns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                btns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        renderThemes('all');
+
+        particlesJS("particles-js", {
+            "particles": { "number": { "value": 40 }, "color": { "value": "#aaaaaa" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3 }, "size": { "value": 4 }, "line_linked": { "enable": true, "distance": 150, "color": "#aaaaaa", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1.5 } },
+            "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "bubble" } } }, "retina_detect": true
+        });
+    </script>
+</body>
+</html>

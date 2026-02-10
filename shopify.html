@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="Download Top 50 Premium Shopify Themes at 90% Discount. High converting, fast loading themes like Impulse, Prestige, and Motion.">
-    <meta name="keywords" content="Shopify Themes, Premium Shopify Templates, Cheap Shopify Themes, Impulse Theme Free, Prestige Theme Download">
-    <meta name="author" content="NextGen Adi">
-
-    <title>NextGenAdi4U | Premium Shopify Store</title>
+    <title>NextGen | Premium Shopify Store</title>
+    <meta name="description" content="Download Premium Shopify Themes. View gallery previews and buy high-converting themes.">
     
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6262033771925685"
      crossorigin="anonymous"></script>
@@ -19,128 +16,123 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
-        /* --- THEME VARIABLES --- */
         :root {
             --bg-body: #f4f4f9;
             --gold-main: #d4af37;
             --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f3d467 100%);
             --text-dark: #1a1a1a;
-            --glass-card: rgba(255, 255, 255, 0.9);
+            --glass-card: rgba(255, 255, 255, 0.95);
             --shadow-card: 0 15px 35px rgba(0,0,0,0.08);
-            --border-light: rgba(0,0,0,0.05);
             --danger: #ff4757;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
-
         body { background: var(--bg-body); color: var(--text-dark); overflow-x: hidden; }
-
         #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; left: 0; }
 
-        /* --- NAVBAR --- */
+        /* NAVBAR */
         .navbar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 5%; background: rgba(255,255,255,0.9);
             position: fixed; top: 0; width: 100%; z-index: 1000;
-            border-bottom: 1px solid var(--border-light);
-            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05); backdrop-filter: blur(20px);
         }
         .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: #000; text-decoration: none; }
         .logo span { color: var(--gold-main); }
-
-        .nav-right { display: flex; align-items: center; gap: 15px; }
-
         .back-btn-header {
             text-decoration: none; color: var(--text-dark); font-weight: 700; font-size: 0.85rem;
             padding: 8px 20px; border: 1px solid var(--gold-main); border-radius: 50px;
             transition: 0.3s; display: flex; align-items: center; gap: 8px; background: transparent;
         }
-        .back-btn-header:hover { background: var(--gold-main); color: #fff; box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3); transform: translateX(-3px); }
+        .back-btn-header:hover { background: var(--gold-main); color: #fff; transform: translateX(-3px); }
 
-        /* --- HERO --- */
+        /* HEADER */
         .header { text-align: center; padding: 130px 20px 40px; }
         .header h1 { font-size: 3.5rem; margin-bottom: 10px; font-family: 'Playfair Display', serif; }
-        .header p { color: #666; max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
-        .offer-badge { 
-            background: var(--danger); color: #fff; padding: 5px 20px; border-radius: 50px; 
-            font-size: 0.9rem; font-weight: 800; margin-top: 15px; display: inline-block;
-            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4); animation: pulse 2s infinite;
-        }
+        .offer-badge { background: var(--danger); color: #fff; padding: 5px 20px; border-radius: 50px; font-weight: 800; font-size: 0.9rem; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-        /* --- FILTERS --- */
-        .filter-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; padding: 0 20px; }
-        .filter-btn {
-            padding: 8px 25px; border: 1px solid #ddd; background: #fff; border-radius: 30px;
-            cursor: pointer; font-size: 0.9rem; transition: 0.3s; font-weight: 600;
-        }
+        /* FILTERS */
+        .filter-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+        .filter-btn { padding: 8px 25px; border: 1px solid #ddd; background: #fff; border-radius: 30px; cursor: pointer; font-weight: 600; transition: 0.3s; }
         .filter-btn:hover, .filter-btn.active { background: var(--text-dark); color: #fff; border-color: var(--text-dark); }
 
-        /* --- GRID --- */
-        .grid-container {
-            max-width: 1300px; margin: 0 auto; padding: 0 20px 100px;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
-        }
+        /* GRID */
+        .grid-container { max-width: 1300px; margin: 0 auto; padding: 0 20px 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
 
-        /* --- THEME CARD --- */
+        /* CARD */
         .theme-card {
             background: var(--glass-card); border-radius: 16px; overflow: hidden;
-            box-shadow: var(--shadow-card); transition: all 0.4s ease; 
-            border: 1px solid var(--border-light); display: flex; flex-direction: column;
-            position: relative;
+            box-shadow: var(--shadow-card); transition: 0.4s ease; border: 1px solid rgba(0,0,0,0.05); position: relative;
         }
-        .theme-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.12); border-color: var(--gold-main); }
-
-        .sale-tag {
-            position: absolute; top: 15px; right: 15px; background: var(--gold-gradient);
-            color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; z-index: 5;
-        }
-
-        .thumb-area {
-            height: 180px; background: #e0e0e0; position: relative; overflow: hidden;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; color: #aaa; font-weight: 700; text-transform: uppercase;
-            background-size: cover; background-position: center; transition: 0.5s;
-        }
+        .theme-card:hover { transform: translateY(-10px); border-color: var(--gold-main); box-shadow: 0 25px 50px rgba(0,0,0,0.1); }
+        .sale-tag { position: absolute; top: 15px; right: 15px; background: var(--gold-gradient); color: #fff; padding: 4px 12px; border-radius: 4px; font-weight: 800; font-size: 0.75rem; z-index: 5; }
+        .thumb-area { height: 180px; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #aaa; text-transform: uppercase; font-weight: 700; background-size: cover; background-position: center; transition: 0.5s; }
         .theme-card:hover .thumb-area { filter: brightness(1.1); }
-
-        .card-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-        .theme-cat { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        .theme-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: #111; font-family: 'Playfair Display', serif; }
-        
-        .price-box { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
-        .old-price { text-decoration: line-through; color: #999; font-size: 0.9rem; }
-        .new-price { color: var(--danger); font-size: 1.3rem; font-weight: 800; }
-        
-        .btn-row { display: flex; gap: 10px; margin-top: auto; }
-        .btn-preview, .btn-buy {
-            flex: 1; padding: 10px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;
-            text-align: center; cursor: pointer; text-decoration: none; transition: 0.3s;
-            display: flex; align-items: center; justify-content: center; gap: 5px;
-        }
-        .btn-preview { border: 1px solid #ddd; color: #333; background: transparent; }
-        .btn-preview:hover { background: #f0f0f0; border-color: #ccc; }
-        
+        .card-body { padding: 20px; text-align: left; }
+        .theme-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 5px; font-family: 'Playfair Display', serif; }
+        .price-box { display: flex; gap: 10px; align-items: center; margin: 10px 0 20px; }
+        .old-price { text-decoration: line-through; color: #999; }
+        .new-price { color: var(--danger); font-weight: 800; font-size: 1.2rem; }
+        .btn-row { display: flex; gap: 10px; }
+        .btn-preview, .btn-buy { flex: 1; padding: 10px; border-radius: 6px; font-weight: 600; text-align: center; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 5px; text-decoration: none; transition: 0.3s; }
+        .btn-preview { border: 1px solid #ddd; background: transparent; color: #333; }
+        .btn-preview:hover { background: #f0f0f0; border-color: #999; }
         .btn-buy { background: #111; color: #fff; border: 1px solid #111; }
         .btn-buy:hover { background: var(--gold-main); border-color: var(--gold-main); color: #000; }
 
-        /* --- PREVIEW MODAL --- */
+        /* --- IMAGE SLIDER MODAL (Shopify Style) --- */
         .preview-modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8); z-index: 2000; display: none;
-            justify-content: center; align-items: center; padding: 20px;
-            backdrop-filter: blur(5px);
+            background: rgba(0,0,0,0.9); z-index: 2000; display: none;
+            flex-direction: column; justify-content: center; align-items: center;
+            backdrop-filter: blur(10px);
         }
-        .modal-content {
-            width: 100%; max-width: 1200px; height: 90%; background: #fff;
-            border-radius: 10px; overflow: hidden; position: relative; display: flex; flex-direction: column;
-        }
+        
+        /* Modal Header (Browser Look) */
         .modal-header {
-            padding: 10px 20px; background: #111; color: #fff; display: flex; justify-content: space-between; align-items: center;
+            width: 90%; max-width: 1000px; padding: 15px 25px; background: #fff;
+            border-radius: 10px 10px 0 0; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #eee;
         }
-        .modal-title { font-weight: bold; }
-        .close-modal { cursor: pointer; font-size: 1.2rem; color: #fff; }
-        .modal-frame { flex-grow: 1; width: 100%; border: none; background: #fff; }
+        .modal-title { font-weight: bold; color: #333; font-size: 1.1rem; }
+        .close-modal { cursor: pointer; color: #ff4757; font-size: 1.2rem; transition: 0.3s; }
+        .close-modal:hover { transform: rotate(90deg); }
+
+        /* Slider Area */
+        .slider-container {
+            width: 90%; max-width: 1000px; height: 70vh; background: #000;
+            position: relative; display: flex; align-items: center; justify-content: center;
+            border-radius: 0 0 10px 10px; overflow: hidden;
+        }
+        .slider-image {
+            max-width: 100%; max-height: 100%; object-fit: contain;
+            opacity: 0; transition: opacity 0.4s ease-in-out; position: absolute;
+        }
+        .slider-image.active { opacity: 1; position: relative; }
+
+        /* Navigation Arrows */
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.2); color: #fff; border: none;
+            width: 50px; height: 50px; border-radius: 50%; cursor: pointer;
+            font-size: 1.5rem; display: flex; align-items: center; justify-content: center;
+            transition: 0.3s; z-index: 10;
+        }
+        .nav-btn:hover { background: rgba(255,255,255,0.8); color: #000; }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+
+        /* Thumbnails Strip */
+        .thumbnails {
+            width: 90%; max-width: 1000px; display: flex; gap: 10px; margin-top: 15px;
+            overflow-x: auto; padding-bottom: 10px; justify-content: center;
+        }
+        .thumb {
+            width: 60px; height: 40px; object-fit: cover; border-radius: 4px; 
+            cursor: pointer; opacity: 0.6; border: 2px solid transparent; transition: 0.3s;
+        }
+        .thumb.active, .thumb:hover { opacity: 1; border-color: var(--gold-main); }
 
         /* --- FOOTER --- */
         footer { background: #fff; border-top: 1px solid #eee; padding: 60px 20px 30px; }
@@ -154,8 +146,8 @@
         @media (max-width: 768px) {
             .header h1 { font-size: 2.5rem; }
             .grid-container { grid-template-columns: 1fr; }
+            .slider-container { height: 50vh; }
         }
-
     </style>
 </head>
 <body>
@@ -182,26 +174,32 @@
         <button class="filter-btn" onclick="renderThemes('fashion')">Fashion</button>
         <button class="filter-btn" onclick="renderThemes('tech')">Electronics</button>
         <button class="filter-btn" onclick="renderThemes('beauty')">Beauty</button>
-        <button class="filter-btn" onclick="renderThemes('home')">Decor</button>
     </div>
 
     <div class="grid-container" id="theme-grid"></div>
 
-    <div class="preview-modal" id="demoModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title" id="modalTitle">Theme Live Preview</div>
-                <div class="close-modal" onclick="closePreview()"><i class="fas fa-times"></i> Close</div>
-            </div>
-            <iframe class="modal-frame" id="demoFrame"></iframe>
+    <div class="preview-modal" id="imageModal">
+        <div class="modal-header">
+            <div class="modal-title" id="modalTitle">Theme Preview</div>
+            <div class="close-modal" onclick="closeImagePreview()"><i class="fas fa-times"></i></div>
         </div>
+        
+        <div class="slider-container">
+            <button class="nav-btn prev-btn" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <div id="slides-wrapper">
+                </div>
+            <button class="nav-btn next-btn" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="thumbnails" id="thumb-wrapper">
+            </div>
     </div>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
                 <h4>NextGen Themes</h4>
-                <p style="color:#777;">Providing elite Shopify themes for dropshippers and brands since 2026.</p>
+                <p style="color:#777;">Providing elite Shopify themes for dropshippers and brands.</p>
             </div>
             <div class="footer-col">
                 <h4>Legal</h4>
@@ -219,16 +217,14 @@
                 </ul>
             </div>
         </div>
-        <div class="copyright">
-            &copy; 2026 NextGenAdi4U. All Rights Reserved.
-        </div>
+        <div class="copyright">&copy; 2026 NextGenAdi. All Rights Reserved.</div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 800, once: true });
 
-        /* --- 1. DATA GENERATOR (50 Themes) --- */
+        /* --- 1. DATA (50 Themes Config) --- */
         const themeNames = [
             "Impulse", "Prestige", "Motion", "Warehouse", "Empire", "Symmetry", "Streamline", "Broadcast", "Pipeline", "Showcase",
             "Focal", "Capital", "Flow", "Alchemy", "Venue", "Testament", "Icon", "Mr Parker", "Vantage", "Split",
@@ -236,41 +232,46 @@
             "Handy", "Zoom", "Sunrise", "Pacific", "Editions", "Launch", "Startup", "Vogue", "Label", "Boost",
             "Turbo", "Flex", "Retina", "Parallax", "Mobilia", "Responsive", "Artisan", "Maker", "Providence", "Canopy"
         ];
-
         const categories = ["fashion", "tech", "beauty", "home"];
         const themes = [];
 
+        // Generate Themes Data
         themeNames.forEach((name, index) => {
             const cat = categories[index % categories.length];
-            const oldPrice = Math.floor(Math.random() * (450 - 250 + 1) + 250);
-            const newPrice = Math.floor(Math.random() * (29 - 19 + 1) + 19);
+            // Mocking Image Array (Placeholder Unsplash URLs for now)
+            // Replace these with your actual file paths later e.g. "images/impulse/1.jpg"
+            const imgBase = `https://source.unsplash.com/random/1200x800?${cat},${index}`;
+            const images = [];
+            for(let i=0; i<10; i++) {
+                images.push(`https://source.unsplash.com/random/1200x800?${cat},store,${index + i}`);
+            }
 
             themes.push({
                 id: index,
                 name: name + " Premium",
                 category: cat,
-                oldPrice: oldPrice,
-                newPrice: newPrice,
-                color: `hsl(${Math.random() * 360}, 70%, 80%)` 
+                oldPrice: Math.floor(Math.random() * 200 + 250),
+                newPrice: Math.floor(Math.random() * 10 + 19),
+                images: images // Array of 10 images
             });
         });
 
-        /* --- 2. RENDER FUNCTION --- */
+        /* --- 2. RENDER GRID --- */
         const grid = document.getElementById('theme-grid');
 
         function renderThemes(filter) {
             grid.innerHTML = ''; 
-
             themes.forEach(theme => {
                 if (filter !== 'all' && theme.category !== filter) return;
+                
+                // Using 1st image as thumbnail
+                const thumb = theme.images[0]; 
 
                 const card = document.createElement('div');
                 card.className = 'theme-card';
                 card.innerHTML = `
                     <div class="sale-tag">90% OFF</div>
-                    <div class="thumb-area" style="background: linear-gradient(135deg, #f5f7fa 0%, ${theme.color} 100%);">
-                        ${theme.name.split(' ')[0]}
-                    </div>
+                    <div class="thumb-area" style="background-image: url('${thumb}');"></div>
                     <div class="card-body">
                         <span class="theme-cat">${theme.category}</span>
                         <div class="theme-title">${theme.name}</div>
@@ -279,8 +280,8 @@
                             <span class="new-price">$${theme.newPrice}</span>
                         </div>
                         <div class="btn-row">
-                            <button class="btn-preview" onclick="openPreview(${theme.id})"><i class="far fa-eye"></i> Preview</button>
-                            <a href="https://nextgenadi4u.online" target="_blank" class="btn-buy">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                            <button class="btn-preview" onclick="openImagePreview(${theme.id})"><i class="far fa-images"></i> Preview</button>
+                            <a href="https://nextgenadi4u.online" target="_blank" class="btn-buy">Buy Now</a>
                         </div>
                     </div>
                 `;
@@ -288,85 +289,61 @@
             });
         }
 
-        /* --- 3. LIVE PREVIEW GENERATOR (The Magic) --- */
-        function openPreview(id) {
-            const theme = themes[id];
-            const modal = document.getElementById('demoModal');
-            const frame = document.getElementById('demoFrame');
-            document.getElementById('modalTitle').innerText = `Live Preview: ${theme.name}`;
-            
-            modal.style.display = 'flex';
-            
-            // Generate content based on category
-            let content = '';
-            if(theme.category === 'fashion') {
-                content = generateStoreHTML(theme.name, '#fff', '#000', 'Playfair Display', 'https://source.unsplash.com/random/1200x600?fashion');
-            } else if(theme.category === 'tech') {
-                content = generateStoreHTML(theme.name, '#111', '#0ff', 'Outfit', 'https://source.unsplash.com/random/1200x600?technology');
-            } else if(theme.category === 'beauty') {
-                content = generateStoreHTML(theme.name, '#fff0f5', '#d63384', 'Cormorant Garamond', 'https://source.unsplash.com/random/1200x600?makeup');
-            } else {
-                content = generateStoreHTML(theme.name, '#f4f4f9', '#555', 'Roboto', 'https://source.unsplash.com/random/1200x600?furniture');
-            }
-
-            const doc = frame.contentWindow.document;
-            doc.open();
-            doc.write(content);
-            doc.close();
-        }
-
-        function closePreview() {
-            document.getElementById('demoModal').style.display = 'none';
-        }
-
-        // Helper to generate fake store HTML
-        function generateStoreHTML(name, bg, accent, font, img) {
-            return `
-                <html>
-                <head>
-                    <link href="https://fonts.googleapis.com/css2?family=${font.replace(' ','+')}:wght@400;700&display=swap" rel="stylesheet">
-                    <style>
-                        body { margin: 0; font-family: '${font}', sans-serif; background: ${bg}; color: ${accent === '#111' ? '#000' : '#333'}; }
-                        .nav { padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
-                        .hero { height: 400px; background: url('${img}') center/cover; display: flex; align-items: center; justify-content: center; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-                        .hero h1 { font-size: 3rem; margin: 0; }
-                        .grid { padding: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-                        .prod { background: rgba(255,255,255,0.5); height: 250px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,0.1); }
-                        .btn { padding: 10px 20px; background: ${accent}; color: ${bg === '#111' ? '#000' : '#fff'}; border: none; cursor: pointer; margin-top: 20px; }
-                        h2 { text-align: center; margin-top: 40px; color: ${accent}; }
-                    </style>
-                </head>
-                <body>
-                    <div class="nav">
-                        <h3>${name}</h3>
-                        <div>Home | Shop | Contact</div>
-                    </div>
-                    <div class="hero">
-                        <div style="text-align:center">
-                            <h1>New Collection 2026</h1>
-                            <button class="btn">Shop Now</button>
-                        </div>
-                    </div>
-                    <h2>Featured Products</h2>
-                    <div class="grid">
-                        <div class="prod">Product 1</div>
-                        <div class="prod">Product 2</div>
-                        <div class="prod">Product 3</div>
-                    </div>
-                </body>
-                </html>
-            `;
-        }
-
-        // Initialize
-        const btns = document.querySelectorAll('.filter-btn');
-        btns.forEach(btn => {
+        // Filters
+        document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                btns.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
             });
         });
         renderThemes('all');
+
+        /* --- 3. IMAGE SLIDER LOGIC --- */
+        let currentSlideIndex = 0;
+        let currentThemeImages = [];
+
+        function openImagePreview(id) {
+            const theme = themes[id];
+            currentThemeImages = theme.images;
+            currentSlideIndex = 0;
+            
+            document.getElementById('modalTitle').innerText = `Gallery: ${theme.name}`;
+            document.getElementById('imageModal').style.display = 'flex';
+            
+            updateSlider();
+        }
+
+        function closeImagePreview() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex >= currentThemeImages.length) currentSlideIndex = 0;
+            if (currentSlideIndex < 0) currentSlideIndex = currentThemeImages.length - 1;
+            updateSlider();
+        }
+
+        function setSlide(index) {
+            currentSlideIndex = index;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const wrapper = document.getElementById('slides-wrapper');
+            const thumbWrapper = document.getElementById('thumb-wrapper');
+            
+            // Render Main Image
+            wrapper.innerHTML = `<img src="${currentThemeImages[currentSlideIndex]}" class="slider-image active" alt="Theme Preview">`;
+            
+            // Render Thumbnails
+            let thumbsHTML = '';
+            currentThemeImages.forEach((img, idx) => {
+                const activeClass = idx === currentSlideIndex ? 'active' : '';
+                thumbsHTML += `<img src="${img}" class="thumb ${activeClass}" onclick="setSlide(${idx})">`;
+            });
+            thumbWrapper.innerHTML = thumbsHTML;
+        }
 
         particlesJS("particles-js", {
             "particles": { "number": { "value": 40 }, "color": { "value": "#aaaaaa" }, "shape": { "type": "circle" }, "opacity": { "value": 0.3 }, "size": { "value": 4 }, "line_linked": { "enable": true, "distance": 150, "color": "#aaaaaa", "opacity": 0.2, "width": 1 }, "move": { "enable": true, "speed": 1.5 } },
